@@ -20,6 +20,9 @@ export default {
     "path": "i18n",
     "localeConfigs": {}
   },
+  "clientModules": [
+    "C:\\Users\\SliveredSerf\\Projects\\RedhatCSE\\src\\clientModules\\asciinema.js"
+  ],
   "presets": [
     [
       "classic",
@@ -297,7 +300,6 @@ export default {
   "scripts": [],
   "headTags": [],
   "stylesheets": [],
-  "clientModules": [],
   "titleDelimiter": "|",
   "noIndex": false,
   "markdown": {

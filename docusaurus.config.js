@@ -29,6 +29,8 @@ const config = {
     locales: ['en'],
   },
 
+  clientModules: [require.resolve('./src/clientModules/asciinema.js')],
+
   presets: [
     [
       'classic',

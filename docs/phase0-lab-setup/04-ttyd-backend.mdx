@@ -40,10 +40,21 @@ sudo mv ttyd.x86_64 /usr/local/bin/ttyd
 Start ttyd:
 
 ```bash
+# Option 1: Run directly
 ttyd -p 7681 bash
+
+# Option 2: Run as systemd service (persists across reboots)
+sudo systemctl enable --now ttyd
+sudo systemctl status ttyd
 ```
 
-Then visit `http://<windows-ip>:7681` from your Windows browser.
+Then find your WSL2 IP address:
+
+```bash
+hostname -I
+```
+
+Visit `http://<wsl2-ip>:7681` from your Windows browser (e.g., `http://172.26.57.86:7681`).
 
 ## Guided Lab
 

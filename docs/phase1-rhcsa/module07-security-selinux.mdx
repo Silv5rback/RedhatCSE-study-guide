@@ -128,6 +128,19 @@ sudo firewall-cmd --reload
 
 **Expected output:** SELinux in enforcing mode, booleans set, contexts correct, firewalld allows HTTP and port 8080, denials are diagnosable.
 
+<div style={{ textAlign: 'center', margin: '1rem 0' }}>
+  <asciinema-player
+    src="/RedhatCSE-study-guide/static/cast/rhcsa-selinux.cast"
+    rows="15"
+    cols="80"
+    speed="2"
+    loop={false}
+    autoplay={false}
+    preload={true}
+    style={{ width: '100%', maxWidth: '800px', border: '1px solid var(--ifm-color-border)', borderRadius: 'var(--ifm-global-radius)' }}
+  ></asciinema-player>
+</div>
+
 :::tip Exam Tip
 Never disable SELinux on the exam. If something is blocked, diagnose the denial and fix the context or boolean — disabling SELinux is an automatic fail.
 :::

@@ -3,4 +3,5 @@ export default [
   require("C:\\Users\\SliveredSerf\\Projects\\RedhatCSE\\node_modules\\@docusaurus\\theme-classic\\lib\\prism-include-languages"),
   require("C:\\Users\\SliveredSerf\\Projects\\RedhatCSE\\node_modules\\@docusaurus\\theme-classic\\lib\\nprogress"),
   require("C:\\Users\\SliveredSerf\\Projects\\RedhatCSE\\src\\css\\custom.css"),
+  require("C:\\Users\\SliveredSerf\\Projects\\RedhatCSE\\src\\clientModules\\asciinema.js"),
 ];
