@@ -1,0 +1,29 @@
+{
+  "id": "phase1-rhcsa/phase1-rhcsa-module07-security-selinux",
+  "title": "Module 7 — Security & SELinux",
+  "description": "SELinux modes, booleans, contexts, firewalld, and port management",
+  "source": "@site/docs/phase1-rhcsa/module07-security-selinux.mdx",
+  "sourceDirName": "phase1-rhcsa",
+  "slug": "/phase1-rhcsa/module07-security-selinux",
+  "permalink": "/RedhatCSE/phase1-rhcsa/module07-security-selinux",
+  "draft": false,
+  "unlisted": false,
+  "editUrl": "https://github.com/SliveredSerf/RedhatCSE/tree/main/docs/phase1-rhcsa/module07-security-selinux.mdx",
+  "tags": [],
+  "version": "current",
+  "frontMatter": {
+    "id": "phase1-rhcsa-module07-security-selinux",
+    "title": "Module 7 — Security & SELinux",
+    "description": "SELinux modes, booleans, contexts, firewalld, and port management",
+    "slug": "/phase1-rhcsa/module07-security-selinux"
+  },
+  "sidebar": "tutorialSidebar",
+  "previous": {
+    "title": "Module 6 — Users & Groups",
+    "permalink": "/RedhatCSE/phase1-rhcsa/module06-users-groups"
+  },
+  "next": {
+    "title": "Module 8 — RHCSA Capstone",
+    "permalink": "/RedhatCSE/phase1-rhcsa/module08-capstone"
+  }
+}

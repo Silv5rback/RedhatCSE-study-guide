@@ -1,0 +1,234 @@
+---
+id: phase2-rhce-module12-rhel-mgmt
+title: Module 12 — Managing RHEL with Ansible
+description: Managing packages, services, users, storage, firewalld, SELinux via Ansible
+slug: /phase2-rhce/module12-rhel-mgmt
+---
+
+# Phase 2, Module 12 — Managing RHEL with Ansible
+
+## Theory
+
+The RHCE exam requires you to manage RHEL systems with Ansible across all domains:
+
+- **Packages** — `ansible.builtin.package`, `ansible.builtin.dnf`, `ansible.builtin.rpm`
+- **Services** — `ansible.builtin.service`
+- **Users** — `ansible.builtin.user`, `ansible.builtin.group`
+- **Storage** — `ansible.builtin.filesystem`, `ansible.builtin.mount`, `ansible.builtin.lvg`, `ansible.builtin.lvol`
+- **firewalld** — `ansible.posix.firewalld`
+- **SELinux** — `ansible.posix.selinux`, `ansible.posix.seboolean`, `ansible.posix.sefcontext`
+- **Files** — `ansible.builtin.copy`, `ansible.builtin.template`, `ansible.builtin.file`, `ansible.builtin.lineinfile`
+
+**Exam reality:** You'll write a single playbook that touches multiple domains — install packages, configure users, set up storage, manage firewalld, and enforce SELinux contexts.
+
+## Try It
+
+```yaml
+# ~/ansible/rhel-manage.yml
+---
+- name: Comprehensive RHEL management
+  hosts: all
+  become: yes
+  
+  vars:
+    app_user: appadmin
+    app_group: appteam
+    data_mount: /mnt/data
+    
+  tasks:
+    # Packages
+    - name: Install required packages
+      ansible.builtin.package:
+        name:
+          - httpd
+          - vim-enhanced
+          - firewalld
+        state: present
+    
+    # Services
+    - name: Ensure firewalld is running
+      ansible.builtin.service:
+        name: firewalld
+        state: started
+        enabled: yes
+    
+    # Users and groups
+    - name: Create app group
+      ansible.builtin.group:
+        name: "{{ app_group }}"
+        state: present
+    
+    - name: Create app user
+      ansible.builtin.user:
+        name: "{{ app_user }}"
+        groups: "{{ app_group }}"
+        append: yes
+        shell: /bin/bash
+        create_home: yes
+    
+    # Storage
+    - name: Ensure mount directory exists
+      ansible.builtin.file:
+        path: "{{ data_mount }}"
+        state: directory
+        mode: '0755'
+    
+    # firewalld
+    - name: Allow HTTP through firewalld
+      ansible.posix.firewalld:
+        service: http
+        permanent: yes
+        state: enabled
+        immediate: yes
+    
+    # SELinux
+    - name: Set SELinux to enforcing
+      ansible.posix.selinux:
+        state: enforcing
+    
+    - name: Allow httpd to make network connections
+      ansible.posix.seboolean:
+        name: httpd_can_network_connect
+        state: yes
+        persistent: yes
+```
+
+## Guided Lab
+
+1. **Create a comprehensive playbook**
+   ```bash
+   mkdir -p ~/ansible/rhel-mgmt
+   cat > ~/ansible/rhel-mgmt/site.yml << 'EOF'
+   ---
+   - name: Manage RHEL systems comprehensively
+     hosts: all
+     become: yes
+     
+     vars:
+       managed_user: rhceuser
+       managed_group: rhcegroup
+       web_port: 8080
+     
+     tasks:
+       - name: Install core packages
+         ansible.builtin.package:
+           name:
+             - httpd
+             - vim
+             - firewalld
+             - policycoreutils-python-utils
+           state: present
+       
+       - name: Create management group
+         ansible.builtin.group:
+           name: "{{ managed_group }}"
+           state: present
+       
+       - name: Create management user
+         ansible.builtin.user:
+           name: "{{ managed_user }}"
+           groups: "{{ managed_group }}"
+           append: yes
+           shell: /bin/bash
+           create_home: yes
+       
+       - name: Set up authorized key for user
+         ansible.builtin.authorized_key:
+           user: "{{ managed_user }}"
+           key: "{{ lookup('file', '/home/control/.ssh/id_ed25519.pub') }}"
+       
+       - name: Configure firewalld service
+         ansible.posix.firewalld:
+           service: httpd
+           permanent: yes
+           state: enabled
+           immediate: yes
+       
+       - name: Configure firewalld port
+         ansible.posix.firewalld:
+           port: "{{ web_port }}/tcp"
+           permanent: yes
+           state: enabled
+           immediate: yes
+       
+       - name: Enforce SELinux
+         ansible.posix.selinux:
+           state: enforcing
+       
+       - name: Set SELinux boolean
+         ansible.posix.seboolean:
+           name: httpd_can_network_connect
+           state: yes
+           persistent: yes
+       
+       - name: Start and enable httpd
+         ansible.builtin.service:
+           name: httpd
+           state: started
+           enabled: yes
+   EOF
+   ```
+
+2. **Run the playbook**
+   ```bash
+   ansible-playbook -i ~/ansible/inventory.ini ~/ansible/rhel-mgmt/site.yml
+   ```
+
+3. **Verify on managed nodes**
+   ```bash
+   ansible all -i ~/ansible/inventory.ini -a "id rhceuser"
+   ansible all -i ~/ansible/inventory.ini -a "systemctl status firewalld"
+   ansible all -i ~/ansible/inventory.ini -a "getenforce"
+   ansible all -i ~/ansible/inventory.ini -a "sudo firewall-cmd --list-all"
+   ```
+
+4. **Create idempotency test**
+   ```bash
+   # Run again — should report no changes
+   ansible-playbook -i ~/ansible/inventory.ini ~/ansible/rhel-mgmt/site.yml
+   # Look for "changed=0" in the recap
+   ```
+
+**Expected output:** Playbook configures all domains, runs without errors, second run shows no changes (idempotent).
+
+:::tip Exam Tip
+Idempotency is key. Run your playbook twice — the second run should show `changed=0` for all tasks. If a task keeps reporting `changed`, your module arguments aren't idempotent.
+:::
+
+## Challenge Trial
+
+Without looking at the steps:
+
+- [ ] Write a playbook that installs packages with `ansible.builtin.package`
+- [ ] Create users and groups with `ansible.builtin.user`/`group`
+- [ ] Configure firewalld services and ports with `ansible.posix.firewalld`
+- [ ] Set SELinux to enforcing with `ansible.posix.selinux`
+- [ ] Set a SELinux boolean persistently with `ansible.posix.seboolean`
+- [ ] Set SELinux file contexts with `ansible.posix.sefcontext`
+- [ ] Start and enable services with `ansible.builtin.service`
+- [ ] Verify idempotency (run twice, second run changes=0)
+
+## Quiz
+
+<details>
+<summary><strong>Q1: Which Ansible collection manages firewalld?</strong></summary>
+<p><strong>Answer:</strong> `ansible.posix.firewalld` manages firewalld on POSIX systems.</p>
+</details>
+
+<details>
+<summary><strong>Q2: Which Ansible module sets SELinux booleans persistently?</strong></summary>
+<p><strong>Answer:</strong> `ansible.posix.seboolean` manages SELinux booleans with `persistent: yes` option.</p>
+</details>
+
+<details>
+<summary><strong>Q3: Which Ansible module manages LVM volume groups?</strong></summary>
+<p><strong>Answer:</strong> `ansible.builtin.lvg` manages LVM volume groups.</p>
+</details>
+
+:::tip Exam Tip
+The RHCE exam expects you to use FQCN (fully qualified collection names) like `ansible.posix.firewalld`, not just `firewalld`.
+:::
+
+## Next step
+
+[→ Module 13 — Ansible Vault & Debugging](./module13-vault-debug)

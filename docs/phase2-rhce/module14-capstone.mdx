@@ -1,0 +1,185 @@
+---
+id: phase2-rhce-module14-capstone
+title: Module 14 — RHCE Capstone
+description: Multi-role Ansible playbook provisioning a full stack + mock exam simulation
+slug: /phase2-rhce/module14-capstone
+---
+
+# Phase 2, Module 14 — RHCE Capstone
+
+## Theory
+
+This capstone simulates an RHCE-style (EX294) exam environment. You'll write Ansible playbooks and roles that configure multiple systems to meet requirements:
+
+**Exam format:** The RHCE (EX294) is a 3-hour, hands-on performance exam. You're given:
+- A control node with Ansible installed
+- Several managed nodes (RHEL systems)
+- An inventory file
+- A list of requirements
+
+You must write Ansible code that configures the managed nodes to meet all requirements.
+
+**Key exam skills:**
+- Writing idempotent playbooks and roles
+- Using Ansible Vault for secrets
+- Managing packages, services, users, storage, firewalld, SELinux
+- Using Jinja2 templates for dynamic config
+- Debugging playbooks that fail
+- Working with existing inventory and SSH access
+
+**Scoring:** Each requirement is worth points. You typically need 70% to pass.
+
+## Try It
+
+Review all Phase 2 modules (9-13) before attempting this capstone.
+
+## Guided Lab — RHCE Capstone Scenario
+
+### Requirements
+
+You're given a control node and 2 managed nodes (`web01`, `db01`). Complete these tasks:
+
+**Task 1: Web Server Role (45 minutes)**
+Create a role `webserver` that:
+- Installs `httpd` package
+- Creates document root `/var/www/html`
+- Deploys `index.html` from a Jinja2 template with `{{ ansible_hostname }}`
+- Ensures `httpd` service is started and enabled
+- Opens port 80 in firewalld
+- Sets SELinux context for `/var/www/html`
+- Applies only to hosts in `[webservers]` group
+
+**Task 2: Database Role (45 minutes)**
+Create a role `database` that:
+- Installs `postgresql-server` package
+- Initializes PostgreSQL database
+- Ensures `postgresql` service is started and enabled
+- Opens port 5432 in firewalld
+- Sets a vaulted password for the postgres user
+- Applies only to hosts in `[dbservers]` group
+
+**Task 3: Common Configuration (30 minutes)**
+Apply to all hosts:
+- Creates user `ansible-admin` with sudo access
+- Sets SSH key for `ansible-admin`
+- Ensures SELinux is enforcing
+- Configures NTP/chrony
+- Installs `vim`, `curl`, `wget`
+
+**Task 4: Vault Secrets (15 minutes)**
+- Create `vault.yml` with database passwords
+- Use vaulted variables in the database role
+- Run playbook with `--ask-vault-pass`
+
+### Solution Structure
+
+```
+~/ansible/
+├── inventory.ini
+├── site.yml
+├── vault.yml
+├── roles/
+│   ├── webserver/
+│   │   ├── tasks/main.yml
+│   │   ├── handlers/main.yml
+│   │   ├── templates/index.html.j2
+│   │   └── defaults/main.yml
+│   └── database/
+│       ├── tasks/main.yml
+│       ├── handlers/main.yml
+│       ├── defaults/main.yml
+│       └── vars/main.yml
+└── .vault_pass
+```
+
+### Verification
+
+```bash
+# Run the full playbook
+ansible-playbook -i inventory.ini site.yml --ask-vault-pass
+
+# Verify on web01
+ansible web01 -i inventory.ini -a "systemctl status httpd"
+ansible web01 -i inventory.ini -a "cat /var/www/html/index.html"
+ansible web01 -i inventory.ini -a "firewall-cmd --list-all"
+
+# Verify on db01
+ansible db01 -i inventory.ini -a "systemctl status postgresql"
+ansible db01 -i inventory.ini -a "getenforce"
+
+# Verify on all
+ansible all -i inventory.ini -a "id ansible-admin"
+ansible all -i inventory.ini -a "getenforce"
+```
+
+:::tip Exam Tip
+Read all requirements before writing any code. Plan your role structure, then write tasks, templates, and variables. Test incrementally.
+:::
+
+## Challenge Trial — Timed Simulation
+
+Set a timer for 180 minutes. Complete all tasks above without looking at previous module steps. Then verify:
+
+- [ ] webserver role created with tasks, handlers, template, defaults
+- [ ] database role created with tasks, handlers, defaults
+- [ ] webserver role installs httpd and starts service
+- [ ] webserver role deploys index.html with Jinja2 template
+- [ ] webserver role opens port 80 in firewalld
+- [ ] webserver role sets SELinux context for /var/www/html
+- [ ] database role installs postgresql-server
+- [ ] database role starts and enables postgresql service
+- [ ] database role opens port 5432 in firewalld
+- [ ] Common config creates ansible-admin user with sudo
+- [ ] Common config sets SSH key for ansible-admin
+- [ ] Common config ensures SELinux is enforcing
+- [ ] Common config installs vim, curl, wget
+- [ ] Vault file created with database passwords
+- [ ] Vault variables used in database role
+- [ ] Playbook runs with `--ask-vault-pass` without errors
+- [ ] Playbook is idempotent (second run: changed=0)
+- [ ] All services running on correct hosts
+- [ ] firewalld allows correct ports/services
+
+## Quiz
+
+<details>
+<summary><strong>Q1: How long is the RHCE (EX294) exam?</strong></summary>
+<p><strong>Answer:</strong> 3 hours (180 minutes) of hands-on Ansible tasks.</p>
+</details>
+
+<details>
+<summary><strong>Q2: What is a key difference between RHCSA and RHCE exams?</strong></summary>
+<p><strong>Answer:</strong> RHCE (EX294) is Ansible-focused; RHCSA (EX200) covers general system administration.</p>
+</details>
+
+<details>
+<summary><strong>Q3: Why is idempotency important in the RHCE exam?</strong></summary>
+<p><strong>Answer:</strong> Running playbooks multiple times should not cause errors or unwanted changes.</p>
+</details>
+
+:::tip Exam Tip
+The RHCE exam gives you a working control node and managed nodes. Your job is to write Ansible code that achieves the desired state — not to log into each machine and configure manually.
+:::
+
+## Final Self-Assessment
+
+Rate yourself (1-5) on each Ansible domain:
+- [ ] Inventory and ad-hoc commands
+- [ ] Playbooks (variables, conditionals, loops, handlers)
+- [ ] Jinja2 templates
+- [ ] Roles (structure, ansible-galaxy, dependencies)
+- [ ] Package/service/user management
+- [ ] Storage (mounts, LVM)
+- [ ] firewalld and SELinux via Ansible
+- [ ] Ansible Vault
+- [ ] Debugging (verbosity, check mode, diff mode, step mode)
+
+Any domain below 3? Review that module before scheduling your RHCE exam.
+
+## You're ready
+
+You've completed all 14 modules of the RedhatCSE guide. You should be prepared for:
+- **RHCSA (EX200)** — Phases 0-1
+- **RHCE (EX294)** — Phase 2
+
+Good luck on your exam!

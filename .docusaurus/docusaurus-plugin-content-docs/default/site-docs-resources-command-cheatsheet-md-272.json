@@ -1,0 +1,29 @@
+{
+  "id": "resources/resources-command-cheatsheet",
+  "title": "Command Cheatsheet",
+  "description": "Critical commands and files for each RHCSA/RHCE domain",
+  "source": "@site/docs/resources/command-cheatsheet.md",
+  "sourceDirName": "resources",
+  "slug": "/resources/command-cheatsheet",
+  "permalink": "/RedhatCSE/resources/command-cheatsheet",
+  "draft": false,
+  "unlisted": false,
+  "editUrl": "https://github.com/SliveredSerf/RedhatCSE/tree/main/docs/resources/command-cheatsheet.md",
+  "tags": [],
+  "version": "current",
+  "frontMatter": {
+    "id": "resources-command-cheatsheet",
+    "title": "Command Cheatsheet",
+    "description": "Critical commands and files for each RHCSA/RHCE domain",
+    "slug": "/resources/command-cheatsheet"
+  },
+  "sidebar": "tutorialSidebar",
+  "previous": {
+    "title": "Exam Objectives Checklist",
+    "permalink": "/RedhatCSE/resources/exam-objectives"
+  },
+  "next": {
+    "title": "Troubleshooting Guide",
+    "permalink": "/RedhatCSE/resources/troubleshooting"
+  }
+}

@@ -1,0 +1,31 @@
+{
+  "name": "redhatcse",
+  "version": "1.0.0",
+  "description": "Red Hat Certified Systems Engineer (RHCSE) interactive study guide — Docusaurus + MDX with live shell labs",
+  "private": true,
+  "scripts": {
+    "start": "docusaurus start",
+    "build": "docusaurus build",
+    "swizzle": "docusaurus swizzle",
+    "deploy": "docusaurus deploy",
+    "clear": "docusaurus clear",
+    "serve": "docusaurus serve",
+    "lint:docs": "echo \"Linting docs...\" && node scripts/lint-mdx.js",
+    "write-translations": "docusaurus write-translations",
+    "write-heading-ids": "docusaurus write-heading-ids"
+  },
+  "dependencies": {
+    "@docusaurus/core": "3.10.2",
+    "@docusaurus/preset-classic": "3.10.2",
+    "@docusaurus/theme-live-codeblock": "3.10.2",
+    "@xterm/addon-fit": "^0.11.0",
+    "@xterm/xterm": "^5.5.0",
+    "prism-react-renderer": "^2.4.1",
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1",
+    "xterm": "^5.3.0"
+  },
+  "engines": {
+    "node": ">=18.0.0"
+  }
+}

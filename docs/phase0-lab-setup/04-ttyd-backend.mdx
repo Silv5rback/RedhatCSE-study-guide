@@ -1,0 +1,99 @@
+---
+id: phase0-lab-setup-04-ttyd-backend
+title: 04 — ttyd Backend
+description: Set up ttyd WebSocket terminal server on WSL2 for live browser shell
+slug: /phase0-lab-setup/04-ttyd-backend
+---
+
+# Phase 0, Module 4 — ttyd Backend
+
+## Theory
+
+The live shell labs in this guide use **ttyd** — a tool that shares a terminal over the web via WebSocket. It runs on your WSL2 Linux VM and serves a real bash shell that your browser connects to via xterm.js.
+
+**Why WSL2?** Native Windows has limited PTY (pseudo-terminal) support. ttyd needs a real PTY to allocate a bash shell. WSL2 provides a full Linux kernel with proper PTY support.
+
+**Architecture:**
+```
+Browser (xterm.js) ← WebSocket → ttyd (WSL2) → bash (PTY)
+```
+
+## Try It
+
+Install ttyd on WSL2:
+
+```bash
+# On WSL2 (AlmaLinux/Rocky/CentOS)
+sudo dnf install -y ttyd
+
+# Or download the Go binary
+wget https://github.com/tsl0922/ttyd/releases/download/1.7.3/ttyd.x86_64
+chmod +x ttyd.x86_64
+sudo mv ttyd.x86_64 /usr/local/bin/ttyd
+```
+
+Start ttyd:
+
+```bash
+ttyd -p 7681 bash
+```
+
+Then visit `http://<windows-ip>:7681` from your Windows browser.
+
+## Guided Lab
+
+1. **Install ttyd on WSL2**
+   ```bash
+   sudo dnf install -y ttyd  # or download binary
+   ```
+
+2. **Start ttyd on port 7681**
+   ```bash
+   ttyd -p 7681 bash
+   ```
+
+3. **Find your Windows IP address**
+   ```powershell
+   ipconfig
+   # Look for IPv4 Address under your Wi-Fi or Ethernet adapter
+   ```
+
+4. **Connect from browser**
+   Open `http://<windows-ip>:7681` — you should see a bash shell
+
+5. **A dedicated lab shell page is available** at [/lab-shell](/lab-shell)
+
+6. **Make ttyd persistent** (create a systemd service or use tmux/screen)
+
+:::tip Exam Tip
+ttyd gives anyone on your network shell access. Only run it on trusted networks, or bind to localhost (`ttyd -p 7681 -c user:pass bash`) for basic auth.
+:::
+
+## Challenge Trial
+
+Set up ttyd without looking at the steps. Verify:
+
+- [ ] ttyd is installed on WSL2 (`ttyd --version` works)
+- [ ] ttyd is running on port 7681
+- [ ] You can connect via browser at `http://<windows-ip>:7681`
+- [ ] You can type commands in the terminal (e.g., `whoami`, `pwd`)
+
+## Quiz
+
+<details>
+<summary><strong>Q1: Why does ttyd need WSL2 instead of native Windows?</strong></summary>
+<p><strong>Answer:</strong> ttyd allocates a PTY for a real shell, which native Windows doesn't support well. WSL2 provides a Linux kernel with full PTY support.</p>
+</details>
+
+<details>
+<summary><strong>Q2: What protocol does ttyd use to communicate with the browser?</strong></summary>
+<p><strong>Answer:</strong> ttyd uses WebSocket for real-time, bidirectional terminal communication.</p>
+</details>
+
+:::tip Exam Tip
+The live shell is for practice only. The actual RHCSA/RHCE exam is proctored and doesn't use a browser terminal.
+:::
+
+## Next step
+
+[→ Phase 1, Module 1 — Essentials](../phase1-rhcsa/module01-essentials)

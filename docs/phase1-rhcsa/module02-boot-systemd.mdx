@@ -1,0 +1,165 @@
+---
+id: phase1-rhcsa-module02-boot-systemd
+title: Module 2 — Boot & systemd
+description: Boot process, systemd targets, process management, and scheduling
+slug: /phase1-rhcsa/module02-boot-systemd
+---
+
+# Phase 1, Module 2 — Boot & systemd
+
+## Theory
+
+systemd is the init system on RHEL. You need to know:
+
+- **systemd targets** — multi-user.target, graphical.target, rescue.target, emergency.target
+- **Service management** — start, stop, enable, disable, status, restart, reload
+- **Boot process** — BIOS/UEFI → GRUB → kernel → initramfs → systemd
+- **Process management** — ps, top, kill, pkill, nice, renice
+- **Scheduling** — cron, at, systemd timers
+
+**Exam reality:** You'll need to set the default target, enable/disable services, troubleshoot boot issues, and schedule tasks.
+
+## Try It
+
+```bash
+# Check current target
+systemctl get-default
+
+# List all targets
+systemctl list-units --type=target
+
+# Check service status
+systemctl status sshd
+
+# Start and enable a service
+systemctl start sshd
+systemctl enable sshd
+
+# List running processes
+ps aux | head -20
+top
+
+# Schedule a one-time job
+echo "touch /tmp/at-test-file" | at now + 1 minute
+
+# List cron jobs
+crontab -l
+```
+
+## Guided Lab
+
+1. **Check the default target**
+   ```bash
+   systemctl get-default
+   ```
+   Expected: `multi-user.target` or `graphical.target`
+
+2. **Change the default target to multi-user (no GUI)**
+   ```bash
+   sudo systemctl set-default multi-user.target
+   ```
+
+3. **Verify the change**
+   ```bash
+   systemctl get-default
+   ```
+
+4. **Manage a service (sshd)**
+   ```bash
+   sudo systemctl status sshd
+   sudo systemctl stop sshd
+   sudo systemctl status sshd          # Should show inactive/dead
+   sudo systemctl start sshd
+   sudo systemctl status sshd          # Should show active/running
+   ```
+
+5. **Enable a service to start on boot**
+   ```bash
+   sudo systemctl enable sshd
+   sudo systemctl is-enabled sshd      # Should show enabled
+   ```
+
+6. **Disable a service from boot**
+   ```bash
+   sudo systemctl disable sshd
+   sudo systemctl is-enabled sshd      # Should show disabled
+   sudo systemctl enable sshd          # Re-enable for lab use
+   ```
+
+7. **Reboot into a different target (emergency mode)**
+   ```bash
+   sudo systemctl set-default emergency.target
+   sudo reboot
+   ```
+   Then boot back and reset:
+   ```bash
+   sudo systemctl set-default graphical.target
+   ```
+
+8. **Manage processes**
+   ```bash
+   # Find a process
+   ps aux | grep sshd
+   
+   # Kill a process by PID
+   sudo kill <PID>
+   
+   # Kill by name
+   sudo pkill sshd
+   
+   # Adjust priority
+   sudo nice -n 10 <command>
+   sudo renice -n 5 -p <PID>
+   ```
+
+9. **Schedule a task with cron**
+   ```bash
+   crontab -e
+   # Add: * * * * * /usr/bin/touch /tmp/cron-test
+   # Wait 1 minute, then check:
+   ls -l /tmp/cron-test
+   ```
+
+**Expected output:** Services start/stop/enable/disable correctly, targets change, processes can be found and killed, cron creates the file.
+
+:::tip Exam Tip
+`systemctl set-default` changes the boot target. Use `systemctl isolate` to change targets without rebooting (e.g., `systemctl isolate multi-user.target`).
+:::
+
+## Challenge Trial
+
+Without looking at the steps:
+
+- [ ] Check the current default target
+- [ ] Set the default target to multi-user.target
+- [ ] Start and enable sshd service
+- [ ] Verify sshd is running with `systemctl status`
+- [ ] Disable a service from starting on boot
+- [ ] Find a process with `ps` and kill it
+- [ ] Schedule a cron job that creates a file
+- [ ] Verify the cron-created file exists
+
+## Quiz
+
+<details>
+<summary><strong>Q1: Which command sets the default systemd target?</strong></summary>
+<p><strong>Answer:</strong> `systemctl set-default <target>` sets the default boot target.</p>
+</details>
+
+<details>
+<summary><strong>Q2: Which target boots to a command-line interface without GUI?</strong></summary>
+<p><strong>Answer:</strong> `multi-user.target` provides a command-line multi-user environment without a graphical interface.</p>
+</details>
+
+<details>
+<summary><strong>Q3: Which command checks if a service is enabled at boot?</strong></summary>
+<p><strong>Answer:</strong> `systemctl is-enabled <service>` checks if a service is configured to start at boot.</p>
+</details>
+
+:::tip Exam Tip
+On the RHCSA exam, you may need to boot into rescue.target or emergency.target to fix a broken system. Know how to edit GRUB at boot time (press 'e' at the GRUB menu).
+:::
+
+## Next step
+
+[→ Module 3 — Storage](./module03-storage)

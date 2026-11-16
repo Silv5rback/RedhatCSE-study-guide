@@ -1,0 +1,165 @@
+---
+id: phase2-rhce-module09-ansible-basics
+title: Module 9 — Ansible Basics
+description: Inventory, ad-hoc commands, modules, and first playbooks
+slug: /phase2-rhce/module09-ansible-basics
+---
+
+# Phase 2, Module 9 — Ansible Basics
+
+## Theory
+
+Ansible is the RHCE automation focus. Key concepts:
+
+- **Control node** — The machine where Ansible runs (your lab VM or WSL2)
+- **Managed nodes** — The systems Ansible configures (RHEL VMs)
+- **Inventory** — List of managed nodes (`/etc/ansible/hosts` or custom)
+- **Modules** — Units of work (`ansible.builtin.package`, `ansible.builtin.copy`, `ansible.builtin.service`, etc.)
+- **Ad-hoc commands** — One-off tasks (`ansible all -m ping`)
+- **Playbooks** — YAML files defining desired state
+- **SSH** — Ansible connects via SSH, no agent needed on managed nodes
+
+**Exam reality:** The RHCE (EX294) is an Ansible-focused exam. You'll write playbooks that configure RHEL systems to meet requirements.
+
+## Try It
+
+```bash
+# Install Ansible on control node
+sudo dnf install -y ansible
+
+# Check version
+ansible --version
+
+# Create inventory
+echo "[webservers]" > ~/ansible/inventory.ini
+echo "192.168.1.10" >> ~/ansible/inventory.ini
+echo "[dbservers]" >> ~/ansible/inventory.ini
+echo "192.168.1.20" >> ~/ansible/inventory.ini
+
+# Ping all hosts
+ansible all -i ~/ansible/inventory.ini -m ping
+
+# Run ad-hoc command
+ansible all -i ~/ansible/inventory.ini -a "uptime"
+
+# Install a package on all hosts
+ansible all -i ~/ansible/inventory.ini -m ansible.builtin.package -a "name=httpd state=present" --become
+```
+
+## Guided Lab
+
+1. **Set up Ansible on control node**
+   ```bash
+   sudo dnf install -y ansible
+   ansible --version
+   ```
+
+2. **Configure SSH access to managed nodes**
+   ```bash
+   # From control node, copy SSH key to managed nodes
+   ssh-copy-id -i ~/.ssh/id_ed25519.pub user@<managed-node-ip>
+   ssh-copy-id -i ~/.ssh/id_ed25519.pub user@<managed-node-ip2>
+   ```
+
+3. **Create inventory file**
+   ```bash
+   mkdir -p ~/ansible
+   cat > ~/ansible/inventory.ini << 'EOF'
+   [webservers]
+   <managed-node-1-ip> ansible_user=<user>
+   
+   [dbservers]
+   <managed-node-2-ip> ansible_user=<user>
+   
+   [all:vars]
+   ansible_python_interpreter=/usr/bin/python3
+   EOF
+   ```
+
+4. **Test connectivity**
+   ```bash
+   ansible all -i ~/ansible/inventory.ini -m ping
+   ```
+
+5. **Run ad-hoc commands**
+   ```bash
+   # Check uptime on all hosts
+   ansible all -i ~/ansible/inventory.ini -a "uptime"
+   
+   # Check OS on webservers group
+   ansible webservers -i ~/ansible/inventory.ini -a "cat /etc/redhat-release"
+   
+   # Install vim on all hosts
+   ansible all -i ~/ansible/inventory.ini -m ansible.builtin.package -a "name=vim-enhanced state=present" --become
+   
+   # Check if vim is installed
+   ansible all -i ~/ansible/inventory.ini -m ansible.builtin.command -a "vim --version | head -1"
+   ```
+
+6. **Create your first playbook**
+   ```yaml
+   # ~/ansible/first-playbook.yml
+   ---
+   - name: Configure web servers
+     hosts: webservers
+     become: yes
+     tasks:
+       - name: Ensure httpd is installed
+         ansible.builtin.package:
+           name: httpd
+           state: present
+       
+       - name: Ensure httpd is started and enabled
+         ansible.builtin.service:
+           name: httpd
+           state: started
+           enabled: yes
+   ```
+
+7. **Run the playbook**
+   ```bash
+   ansible-playbook -i ~/ansible/inventory.ini ~/ansible/first-playbook.yml
+   ```
+
+**Expected output:** Ansible connects to managed nodes, installs packages, starts services. Playbook runs without errors.
+
+:::tip Exam Tip
+Always use `--become` (or `become: yes`) for tasks that need root. Ansible connects as your SSH user by default.
+:::
+
+## Challenge Trial
+
+Without looking at the steps:
+
+- [ ] Install Ansible on control node
+- [ ] Set up SSH key access to at least one managed node
+- [ ] Create an inventory file with host groups
+- [ ] Run `ansible -m ping` to verify connectivity
+- [ ] Run an ad-hoc command to install a package
+- [ ] Write and run a playbook that installs and starts a service
+- [ ] Verify the service is running on the managed node
+
+## Quiz
+
+<details>
+<summary><strong>Q1: Which Ansible module installs packages on RHEL?</strong></summary>
+<p><strong>Answer:</strong> `ansible.builtin.package` works across package managers (yum, dnf, apt, etc.).</p>
+</details>
+
+<details>
+<summary><strong>Q2: Which flag runs Ansible tasks with root privileges?</strong></summary>
+<p><strong>Answer:</strong> `--become` (or `-b`) escalates privileges using sudo/su on the managed node.</p>
+</details>
+
+<details>
+<summary><strong>Q3: Which command checks Ansible connectivity to hosts?</strong></summary>
+<p><strong>Answer:</strong> `ansible all -m ping` uses the ping module to verify SSH connectivity.</p>
+</details>
+
+:::tip Exam Tip
+Test your inventory with `ansible all -m ping` before writing playbooks. Connection issues are the most common Ansible failure.
+:::
+
+## Next step
+
+[→ Module 10 — Playbooks](./module10-playbooks)

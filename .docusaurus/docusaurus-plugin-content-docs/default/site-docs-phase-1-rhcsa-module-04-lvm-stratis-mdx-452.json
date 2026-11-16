@@ -1,0 +1,29 @@
+{
+  "id": "phase1-rhcsa/phase1-rhcsa-module04-lvm-stratis",
+  "title": "Module 4 — LVM & Stratis",
+  "description": "Logical Volume Management, resizing, snapshots, and Stratis",
+  "source": "@site/docs/phase1-rhcsa/module04-lvm-stratis.mdx",
+  "sourceDirName": "phase1-rhcsa",
+  "slug": "/phase1-rhcsa/module04-lvm-stratis",
+  "permalink": "/RedhatCSE/phase1-rhcsa/module04-lvm-stratis",
+  "draft": false,
+  "unlisted": false,
+  "editUrl": "https://github.com/SliveredSerf/RedhatCSE/tree/main/docs/phase1-rhcsa/module04-lvm-stratis.mdx",
+  "tags": [],
+  "version": "current",
+  "frontMatter": {
+    "id": "phase1-rhcsa-module04-lvm-stratis",
+    "title": "Module 4 — LVM & Stratis",
+    "description": "Logical Volume Management, resizing, snapshots, and Stratis",
+    "slug": "/phase1-rhcsa/module04-lvm-stratis"
+  },
+  "sidebar": "tutorialSidebar",
+  "previous": {
+    "title": "Module 3 — Storage",
+    "permalink": "/RedhatCSE/phase1-rhcsa/module03-storage"
+  },
+  "next": {
+    "title": "Module 5 — DNF Package Management",
+    "permalink": "/RedhatCSE/phase1-rhcsa/module05-dnf"
+  }
+}

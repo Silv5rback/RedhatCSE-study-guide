@@ -1,0 +1,156 @@
+/**
+ * Custom CSS for RedhatCSE guide
+ */
+
+/* Quiz component styling */
+.quiz-container {
+  border: 1px solid var(--ifm-color-border);
+  border-radius: var(--ifm-global-radius);
+  padding: 1.5rem;
+  margin: 1rem 0;
+  background-color: var(--ifm-background-color);
+}
+
+.quiz-question {
+  font-weight: 600;
+  font-size: 1.1rem;
+  margin-bottom: 1rem;
+  color: var(--ifm-heading-color);
+}
+
+.quiz-options {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.quiz-option {
+  display: block;
+  padding: 0.75rem 1rem;
+  margin: 0.5rem 0;
+  border: 1px solid var(--ifm-color-border);
+  border-radius: var(--ifm-global-radius);
+  background-color: var(--ifm-background-color);
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.quiz-option:hover {
+  border-color: var(--ifm-color-primary);
+  background-color: var(--ifm-color-primary-lightest);
+}
+
+.quiz-option.correct {
+  border-color: var(--ifm-color-success);
+  background-color: var(--ifm-color-success-lightest);
+}
+
+.quiz-option.incorrect {
+  border-color: var(--ifm-color-danger);
+  background-color: var(--ifm-color-danger-lightest);
+}
+
+.quiz-feedback {
+  margin-top: 1rem;
+  padding: 1rem;
+  border-radius: var(--ifm-global-radius);
+  display: none;
+}
+
+.quiz-feedback.correct {
+  background-color: var(--ifm-color-success-lightest);
+  border: 1px solid var(--ifm-color-success);
+  color: var(--ifm-color-success-dark);
+}
+
+.quiz-feedback.incorrect {
+  background-color: var(--ifm-color-danger-lightest);
+  border: 1px solid var(--ifm-color-danger);
+  color: var(--ifm-color-danger-dark);
+}
+
+.quiz-score {
+  font-weight: 700;
+  font-size: 1.1rem;
+  margin-top: 1rem;
+}
+
+/* Terminal lab styling */
+.terminal-lab-container {
+  border: 1px solid var(--ifm-color-border);
+  border-radius: var(--ifm-global-radius);
+  overflow: hidden;
+  margin: 1rem 0;
+  background-color: #000;
+}
+
+.terminal-lab-header {
+  background-color: #2d2d2d;
+  color: #ccc;
+  padding: 0.5rem 1rem;
+  font-family: monospace;
+  font-size: 0.9rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.terminal-lab-status {
+  font-size: 0.75rem;
+  text-transform: uppercase;
+}
+
+.terminal-lab-status.connected {
+  color: #4caf50;
+}
+
+.terminal-lab-status.disconnected {
+  color: #f44336;
+}
+
+/* Exam tip styling */
+.exam-tip {
+  background-color: var(--ifm-color-warning-lightest);
+  border-left: 4px solid var(--ifm-color-warning);
+  padding: 1rem;
+  margin: 1rem 0;
+  border-radius: 0 var(--ifm-global-radius) var(--ifm-global-radius) 0;
+}
+
+.exam-tip-title {
+  font-weight: 700;
+  color: var(--ifm-color-warning-dark);
+  text-transform: uppercase;
+  font-size: 0.85rem;
+  letter-spacing: 0.5px;
+  margin-bottom: 0.5rem;
+}
+
+/* Challenge trial styling */
+.challenge-trial {
+  background-color: var(--ifm-color-info-lightest);
+  border: 1px solid var(--ifm-color-info);
+  border-radius: var(--ifm-global-radius);
+  padding: 1.5rem;
+  margin: 1rem 0;
+}
+
+.challenge-trip-title {
+  font-weight: 700;
+  color: var(--ifm-color-info-dark);
+  margin-bottom: 1rem;
+}
+
+.verification-checklist {
+  list-style: none;
+  padding: 0;
+}
+
+.verification-checklist li {
+  padding: 0.5rem 0;
+  border-bottom: 1px solid var(--ifm-color-border);
+}
+
+.verification-checklist li:last-child {
+  border-bottom: none;
+}

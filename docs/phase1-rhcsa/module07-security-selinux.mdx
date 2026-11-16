@@ -1,0 +1,173 @@
+---
+id: phase1-rhcsa-module07-security-selinux
+title: Module 7 — Security & SELinux
+description: SELinux modes, booleans, contexts, firewalld, and port management
+slug: /phase1-rhcsa/module07-security-selinux
+---
+
+# Phase 1, Module 7 — Security & SELinux
+
+## Theory
+
+SELinux and firewalld are major RHCSA exam topics:
+
+- **SELinux modes** — enforcing, permissive, disabled (`getenforce`, `setenforce`)
+- **SELinux booleans** — `getsebool`, `setsebool`, `sebool -l`
+- **SELinux contexts** — `chcon`, `restorecon`, `semanage fcontext`, `ls -Z`
+- **SELinux troubleshooting** — `/var/log/audit/audit.log`, `ausearch`, `sealert`
+- **firewalld** — zones, services, ports, rich rules (`firewall-cmd`)
+- **Port management** — `semanage port`, `firewall-cmd --add-port`
+
+**Exam reality:** SELinux blocks things silently. You'll need to diagnose denials and fix contexts/booleans without disabling SELinux (disabling it fails the exam).
+
+## Try It
+
+```bash
+# Check SELinux mode
+getenforce
+
+# Set to permissive (temporary)
+sudo setenforce 0
+
+# Check booleans
+getsebool -a | grep httpd
+
+# Set a boolean permanently
+sudo setsebool -P httpd_can_network_connect on
+
+# Check file context
+ls -Z /var/www/html
+
+# Change context temporarily
+sudo chcon -t httpd_sys_content_t /var/www/html/index.html
+
+# Restore default context
+sudo restorecon -v /var/www/html/index.html
+
+# firewalld
+sudo firewall-cmd --state
+sudo firewall-cmd --list-all
+sudo firewall-cmd --add-service=http --permanent
+sudo firewall-cmd --reload
+```
+
+## Guided Lab
+
+1. **Check SELinux status**
+   ```bash
+   getenforce
+   sestatus
+   ```
+
+2. **Set SELinux to permissive temporarily**
+   ```bash
+   sudo setenforce 0
+   getenforce   # Should show Permissive
+   ```
+
+3. **Set back to enforcing**
+   ```bash
+   sudo setenforce 1
+   getenforce   # Should show Enforcing
+   ```
+
+4. **Check and set a boolean**
+   ```bash
+   getsebool httpd_can_network_connect
+   sudo setsebool -P httpd_can_network_connect on
+   getsebool httpd_can_network_connect   # Should show on
+   ```
+
+5. **Examine file contexts**
+   ```bash
+   ls -Z /etc/passwd
+   ls -Z /etc/shadow
+   ```
+
+6. **Install Apache and test SELinux**
+   ```bash
+   sudo dnf install -y httpd
+   sudo systemctl enable --now httpd
+   sudo systemctl status httpd
+   
+   # Create a test file in the wrong place
+   sudo mkdir -p /myweb
+   sudo echo "<h1>Test</h1>" | sudo tee /myweb/index.html
+   
+   # Try to serve it (will fail due to SELinux context)
+   sudo chcon -t httpd_sys_content_t /myweb/index.html
+   sudo restorecon -v /myweb/index.html
+   ```
+
+7. **Configure persistent SELinux context**
+   ```bash
+   sudo semanage fcontext -a -t httpd_sys_content_t "/myweb(/.*)?"
+   sudo restorecon -R -v /myweb
+   ```
+
+8. **Configure firewalld**
+   ```bash
+   sudo firewall-cmd --state
+   sudo firewall-cmd --list-all
+   sudo firewall-cmd --add-service=http --permanent
+   sudo firewall-cmd --add-port=8080/tcp --permanent
+   sudo firewall-cmd --reload
+   sudo firewall-cmd --list-all   # Verify http and 8080 are listed
+   ```
+
+9. **Manage SELinux ports**
+   ```bash
+   sudo semanage port -a -t http_port_t -p tcp 8080
+   sudo semanage port -l | grep http
+   ```
+
+10. **Check SELinux denials**
+    ```bash
+    sudo ausearch -m avc -ts recent
+    ```
+
+**Expected output:** SELinux in enforcing mode, booleans set, contexts correct, firewalld allows HTTP and port 8080, denials are diagnosable.
+
+:::tip Exam Tip
+Never disable SELinux on the exam. If something is blocked, diagnose the denial and fix the context or boolean — disabling SELinux is an automatic fail.
+:::
+
+## Challenge Trial
+
+Without looking at the steps:
+
+- [ ] Check SELinux mode (`getenforce` shows Enforcing)
+- [ ] Set a boolean permanently (`setsebool -P`)
+- [ ] Check a file's SELinux context (`ls -Z`)
+- [ ] Change a file context temporarily (`chcon`)
+- [ ] Restore default context (`restorecon`)
+- [ ] Set a persistent fcontext with `semanage`
+- [ ] Configure firewalld to allow HTTP
+- [ ] Add a port to firewalld permanently
+- [ ] Reload firewalld and verify
+- [ ] Check SELinux denials in audit log
+
+## Quiz
+
+<details>
+<summary><strong>Q1: Which command shows the current SELinux mode?</strong></summary>
+<p><strong>Answer:</strong> `getenforce` displays the current SELinux mode (Enforcing, Permissive, Disabled).</p>
+</details>
+
+<details>
+<summary><strong>Q2: Which command restores default SELinux file contexts?</strong></summary>
+<p><strong>Answer:</strong> `restorecon` resets file contexts to their default policy values.</p>
+</details>
+
+<details>
+<summary><strong>Q3: Which firewalld command adds a service permanently?</strong></summary>
+<p><strong>Answer:</strong> `firewall-cmd --add-service=http --permanent` — `--permanent` makes the change survive reboot; `--reload` activates it immediately.</p>
+</details>
+
+:::tip Exam Tip
+SELinux denials are logged in `/var/log/audit/audit.log`. Use `ausearch -m avc` to find them quickly during the exam.
+:::
+
+## Next step
+
+[→ Module 8 — RHCSA Capstone](./module08-capstone)

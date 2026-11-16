@@ -1,0 +1,145 @@
+---
+id: phase1-rhcsa-module08-capstone
+title: Module 8 — RHCSA Capstone
+description: Multi-task RHCSA simulation with self-assessment checklist
+slug: /phase1-rhcsa/module08-capstone
+---
+
+# Phase 1, Module 8 — RHCSA Capstone
+
+## Theory
+
+This capstone simulates an RHCSA-style exam environment. You'll complete multiple tasks on a single system, just like the real exam:
+
+1. **System configuration** — hostname, time, services, targets
+2. **Storage** — partitions, filesystems, LVM, fstab, swap
+3. **Users** — accounts, groups, sudo, ACLs
+4. **Security** — SELinux, firewalld
+5. **Software** — DNF, modules
+
+**Exam format:** The RHCSA (EX200) is a 2.5-hour, hands-on performance exam. You're given a system and a list of tasks. You must configure the system to meet the requirements. No multiple choice — just results.
+
+**Scoring:** Each task is worth points. You typically need 70% to pass. Partial credit is possible for some tasks.
+
+## Try It
+
+Review all previous modules before attempting this capstone. The tasks below combine skills from Modules 1-7.
+
+## Guided Lab — Capstone Scenario
+
+You're given a fresh RHEL system. Complete these tasks:
+
+### Task 1: System Configuration (15 minutes)
+- Set hostname to `rhcse-exam`
+- Set timezone to `UTC`
+- Enable and start `sshd`
+- Set default target to `multi-user.target`
+- Schedule a daily cron job at 2 AM that touches `/tmp/daily-check`
+
+### Task 2: Storage (30 minutes)
+- Create a 4 GB partition on a spare disk
+- Format as XFS
+- Mount persistently at `/mnt/examdata` using UUID in /etc/fstab
+- Create a 1 GB swap file and activate it persistently
+
+### Task 3: Users & Security (25 minutes)
+- Create users `examuser1` and `examuser2`
+- Add both to a group `examteam`
+- Give `examuser1` sudo access
+- Create `/mnt/examdata/shared` owned by `root:examteam` with mode 770
+- Set ACL: `examuser2` gets `rwx` on `/mnt/examdata/shared`
+- Set SELinux to enforcing with `httpd_can_network_connect` on
+- Configure firewalld to allow HTTP and HTTPS permanently
+
+### Task 4: Software (15 minutes)
+- Install `httpd` and `vim-enhanced`
+- Enable the `postgresql:13` module stream
+- Verify all packages are installed
+
+### Verification
+
+Run these checks to confirm everything is correct:
+
+```bash
+hostnamectl
+timedatectl
+systemctl get-default
+systemctl is-enabled sshd
+crontab -l
+lsblk
+df -h | grep /mnt/examdata
+free -h | grep swap
+id examuser1
+id examuser2
+getent group examteam
+sudo getfacl /mnt/examdata/shared
+getenforce
+getsebool httpd_can_network_connect
+sudo firewall-cmd --list-all
+rpm -q httpd vim-enhanced
+dnf module list postgresql
+```
+
+:::tip Exam Tip
+On the real exam, read each task carefully. Check your work after each task before moving on — you can't go back once the exam ends.
+:::
+
+## Challenge Trial — Timed Simulation
+
+Set a timer for 90 minutes. Complete all tasks above without looking at previous module steps. Then verify:
+
+- [ ] Hostname is `rhcse-exam`
+- [ ] Timezone is UTC
+- [ ] sshd is enabled and running
+- [ ] Default target is `multi-user.target`
+- [ ] Daily cron job at 2 AM exists
+- [ ] 4 GB XFS partition mounted at /mnt/examdata via UUID in fstab
+- [ ] 1 GB swap file active and in fstab
+- [ ] `examuser1` and `examuser2` exist
+- [ ] Both users in `examteam` group
+- [ ] `examuser1` has sudo access
+- [ ] `/mnt/examdata/shared` owned by `root:examteam`, mode 770
+- [ ] `examuser2` has `rwx` ACL on `/mnt/examdata/shared`
+- [ ] SELinux is enforcing
+- [ ] `httpd_can_network_connect` boolean is on
+- [ ] firewalld allows HTTP and HTTPS permanently
+- [ ] `httpd` and `vim-enhanced` installed
+- [ ] `postgresql:13` module stream enabled
+
+## Quiz
+
+<details>
+<summary><strong>Q1: How long is the RHCSA (EX200) exam?</strong></summary>
+<p><strong>Answer:</strong> 2.5 hours (150 minutes) of hands-on tasks.</p>
+</details>
+
+<details>
+<summary><strong>Q2: What is the passing score for RHCSA?</strong></summary>
+<p><strong>Answer:</strong> 70%</p>
+</details>
+
+<details>
+<summary><strong>Q3: Which command verifies a user's groups?</strong></summary>
+<p><strong>Answer:</strong> `id <user>` shows UID, GID, and all group memberships.</p>
+</details>
+
+:::tip Exam Tip
+The exam checks system state, not your method. If the file is in the right place with the right content and permissions, you get the points — regardless of which commands you used.
+:::
+
+## Self-Assessment
+
+Rate yourself (1-5) on each domain:
+- [ ] Shell essentials (Vim, archives, redirection)
+- [ ] systemd (services, targets, processes)
+- [ ] Storage (partitions, filesystems, fstab, swap)
+- [ ] LVM (PVs, VGs, LVs, snapshots)
+- [ ] DNF (packages, repos, modules)
+- [ ] Users & Groups (accounts, sudo, ACLs)
+- [ ] Security (SELinux, firewalld)
+
+Any domain below 3? Review that module before scheduling your exam.
+
+## Next step
+
+[→ Phase 2, Module 9 — Ansible Basics](../phase2-rhce/module09-ansible-basics)

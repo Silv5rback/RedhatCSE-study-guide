@@ -1,0 +1,88 @@
+---
+id: phase0-lab-setup-02-rhel-install
+title: 02 — RHEL Install
+description: Install RHEL (or RHEL-compatible) in a VM for the main lab machine
+slug: /phase0-lab-setup/02-rhel-install
+---
+
+# Phase 0, Module 2 — RHEL Install
+
+## Theory
+
+Your main lab machine needs a full RHEL installation. This is where you'll perform RHCSA/RHCE tasks. While WSL2 is great for the ttyd backend, a full VM gives you:
+
+- Real boot process and systemd (critical for RHCSA)
+- Full disk partitioning and LVM practice
+- Network configuration experience
+- Snapshot/rollback capability for breaking and fixing things
+
+**Hypervisor options:** VirtualBox (free), VMware Workstation Player (free for personal use), or Hyper-V (Windows Pro).
+
+**RHEL access:** Red Hat offers a free [No-cost RHEL subscription](https://developers.redhat.com/) for individuals — use it to get RHEL ISO and updates.
+
+## Try It
+
+Download the RHEL ISO:
+
+1. Go to https://developers.redhat.com/download-rhel
+2. Create a free Red Hat Developer account
+3. Download RHEL 9.x Boot ISO
+4. Verify the checksum (SHA256)
+
+## Guided Lab
+
+1. **Create a new VM** in your hypervisor:
+   - Type: Red Hat Enterprise Linux 64-bit
+   - RAM: 2048 MB minimum (4096 MB recommended)
+   - CPU: 2 vCPUs
+   - Disk: 25 GB minimum
+
+2. **Attach the RHEL ISO** and boot the VM
+
+3. **Installation choices:**
+   - **Installation Destination:** Automatic partitioning (accept LVM defaults)
+   - **Network & Hostname:** Enable Ethernet, set hostname to `rhcse-lab`
+   - **Root Password:** Set a strong password
+   - **User Creation:** Create your user with administrative privileges (wheel group)
+   - **Software Selection:** "Server with GUI" or "Workstation" (GUI helps if you're new to Linux)
+
+4. **Finish installation** and reboot
+
+5. **Log in and verify:**
+   ```bash
+   cat /etc/redhat-release
+   systemctl is-system-running
+   ip addr
+   ```
+
+**Expected output:** RHEL 9.x, system state "running" or "degraded", an IP address on your network.
+
+## Challenge Trial
+
+Install RHEL in a VM without looking at the steps above. Verify:
+
+- [ ] RHEL 9.x is installed and boots to a login prompt
+- [ ] You can log in as your user and use sudo
+- [ ] The VM has an IP address (`ip addr` shows one)
+- [ ] `systemctl is-system-running` shows running or degraded
+- [ ] You can take a snapshot of the VM (for rollback later)
+
+## Quiz
+
+<details>
+<summary><strong>Q1: Which Red Hat program provides free RHEL for individual developers?</strong></summary>
+<p><strong>Answer:</strong> The Red Hat Developer Subscription for Individuals is free and provides RHEL licenses for development and learning.</p>
+</details>
+
+<details>
+<summary><strong>Q2: What is the minimum recommended RAM for an RHEL lab VM?</strong></summary>
+<p><strong>Answer:</strong> 2048 MB is the minimum; 4096 MB is recommended for comfortable GUI use.</p>
+</details>
+
+:::tip Exam Tip
+Take a VM snapshot after a clean install. You'll break things during labs — snapshots let you roll back in seconds.
+:::
+
+## Next step
+
+[→ 03 — SSH Keys & Sudo](./03-ssh-keys-sudo)

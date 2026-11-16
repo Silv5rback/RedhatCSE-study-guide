@@ -1,0 +1,29 @@
+{
+  "id": "phase1-rhcsa/phase1-rhcsa-module05-dnf",
+  "title": "Module 5 — DNF Package Management",
+  "description": "DNF repositories, packages, modules, and software management",
+  "source": "@site/docs/phase1-rhcsa/module05-dnf.mdx",
+  "sourceDirName": "phase1-rhcsa",
+  "slug": "/phase1-rhcsa/module05-dnf",
+  "permalink": "/RedhatCSE/phase1-rhcsa/module05-dnf",
+  "draft": false,
+  "unlisted": false,
+  "editUrl": "https://github.com/SliveredSerf/RedhatCSE/tree/main/docs/phase1-rhcsa/module05-dnf.mdx",
+  "tags": [],
+  "version": "current",
+  "frontMatter": {
+    "id": "phase1-rhcsa-module05-dnf",
+    "title": "Module 5 — DNF Package Management",
+    "description": "DNF repositories, packages, modules, and software management",
+    "slug": "/phase1-rhcsa/module05-dnf"
+  },
+  "sidebar": "tutorialSidebar",
+  "previous": {
+    "title": "Module 4 — LVM & Stratis",
+    "permalink": "/RedhatCSE/phase1-rhcsa/module04-lvm-stratis"
+  },
+  "next": {
+    "title": "Module 6 — Users & Groups",
+    "permalink": "/RedhatCSE/phase1-rhcsa/module06-users-groups"
+  }
+}

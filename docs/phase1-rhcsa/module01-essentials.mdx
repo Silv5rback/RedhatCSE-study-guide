@@ -1,0 +1,144 @@
+---
+id: phase1-rhcsa-module01-essentials
+title: Module 1 — Essentials
+description: Shell navigation, file manipulation, Vim, archives, and help systems
+slug: /phase1-rhcsa/module01-essentials
+---
+
+# Phase 1, Module 1 — Essentials
+
+## Theory
+
+The RHCSA exam assumes you're comfortable at the command line. You need to know:
+
+- **Shell navigation** — `cd`, `pwd`, `ls`, absolute vs relative paths
+- **File manipulation** — `cp`, `mv`, `rm`, `mkdir`, `touch`, `cat`, `less`, `head`, `tail`
+- **Redirection and pipes** — `>`, `>>`, `|`, `2>`, `&>`
+- **Archives** — `tar`, `gzip`, `zip`, `unzip`
+- **Vim** — The only editor guaranteed available on RHEL (nano may not be installed)
+- **Help systems** — `man`, `info`, `--help`, `/usr/share/doc`
+
+**Exam reality:** You'll spend a lot of time moving files, reading configs, and editing files with Vim. Speed matters.
+
+## Try It
+
+```bash
+# Navigate and list
+pwd
+ls -la
+cd /etc
+ls -la
+
+# Create and manipulate files
+mkdir -p ~/practice/labs
+touch ~/practice/labs/empty.txt
+echo "hello world" > ~/practice/labs/greeting.txt
+cat ~/practice/labs/greeting.txt
+
+# Redirect output
+ls /etc > ~/practice/labs/etc-listing.txt 2>&1
+
+# Archive
+tar -czvf ~/practice/labs/etc-backup.tar.gz /etc/hosts /etc/resolv.conf
+tar -tzvf ~/practice/labs/etc-backup.tar.gz
+```
+
+## Guided Lab
+
+1. **Create a practice directory structure**
+   ```bash
+   mkdir -p ~/rHCSA-practice/{module1,module2,module3}
+   ```
+
+2. **Create files with different methods**
+   ```bash
+   touch ~/rHCSA-practice/module1/empty.cfg
+   echo "# My config file" > ~/rHCSA-practice/module1/app.cfg
+   printf "line1\nline2\nline3\n" > ~/rHCSA-practice/module1/data.txt
+   ```
+
+3. **Copy and move files**
+   ```bash
+   cp ~/rHCSA-practice/module1/app.cfg ~/rHCSA-practice/module1/app.cfg.bak
+   mv ~/rHCSA-practice/module1/data.txt ~/rHCSA-practice/module2/data.txt
+   ```
+
+4. **Read and search file contents**
+   ```bash
+   cat ~/rHCSA-practice/module1/app.cfg
+   less /etc/hosts          # Press q to quit
+   head -5 /etc/passwd
+   tail -5 /etc/passwd
+   grep "root" /etc/passwd
+   ```
+
+5. **Practice Vim basics**
+   ```bash
+   vim ~/rHCSA-practice/module1/vim-practice.txt
+   ```
+   - Press `i` to insert text
+   - Type some text
+   - Press `Esc` to exit insert mode
+   - Type `:wq` and press Enter to save and quit
+   - Type `:q!` to quit without saving
+
+6. **Create an archive**
+   ```bash
+   tar -czvf ~/rHCSA-practice/module1-practice.tar.gz ~/rHCSA-practice/module1/
+   tar -tzvf ~/rHCSA-practice/module1-practice.tar.gz
+   ```
+
+7. **Extract to a new location**
+   ```bash
+   mkdir -p ~/rHCSA-practice/restore
+   tar -xzvf ~/rHCSA-practice/module1-practice.tar.gz -C ~/rHCSA-practice/restore
+   ```
+
+**Expected output:** Files created, copied, moved, read, archived, and extracted successfully. Vim opens, accepts input, and saves.
+
+:::tip Exam Tip
+**Vim modal editing:** i = insert, Esc = normal mode, :wq = save and quit, :q! = quit without saving. Memorize these four commands.
+:::
+
+## Challenge Trial
+
+Without looking at the steps above:
+
+- [ ] Create a directory `~/rhcsa-challenge` with three subdirectories
+- [ ] Create a file with `echo` containing 'RHCSA practice'
+- [ ] Copy that file to another subdirectory
+- [ ] Use `grep` to find 'root' in /etc/passwd
+- [ ] Open a file in Vim, add text, save and quit with `:wq`
+- [ ] Create a tar.gz archive of your challenge directory
+- [ ] Extract the archive to a different location
+
+## Quiz
+
+<details>
+<summary><strong>Q1: Which Vim command saves and quits?</strong></summary>
+<p><strong>Answer:</strong> <code>:wq</code> — writes (saves) and quits. <code>:q!</code> quits without saving.</p>
+</details>
+
+<details>
+<summary><strong>Q2: Which tar flag creates a gzip-compressed archive?</strong></summary>
+<p><strong>Answer:</strong> <code>-czvf</code> — c = create, z = gzip compress, v = verbose, f = file.</p>
+</details>
+
+<details>
+<summary><strong>Q3: Which command shows the first 10 lines of a file?</strong></summary>
+<p><strong>Answer:</strong> `head` shows the beginning of a file; `tail` shows the end.</p>
+</details>
+
+:::tip Exam Tip
+**The RHCSA proctor checks system state, not your command history.** Verify every change with a command that proves it worked (`cat`, `ls -l`, `systemctl status`, etc.).
+:::
+
+## TerminalLab Practice
+
+Practice these commands in the live shell lab:
+
+> **Live shell:** The TerminalLab component connects to a ttyd backend on WSL2/Linux. See [Phase 0, Module 4 — ttyd Backend](../phase0-lab-setup/04-ttyd-backend) for setup instructions. A dedicated lab shell page is available at [/lab-shell](/lab-shell).
+
+## Next step
+
+[→ Module 2 — Boot & systemd](./module02-boot-systemd)

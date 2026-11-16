@@ -1,0 +1,25 @@
+{
+  "id": "resources/resources-troubleshooting",
+  "title": "Troubleshooting Guide",
+  "description": "Common break/fix scenarios and how to resolve them",
+  "source": "@site/docs/resources/troubleshooting.mdx",
+  "sourceDirName": "resources",
+  "slug": "/resources/troubleshooting",
+  "permalink": "/RedhatCSE/resources/troubleshooting",
+  "draft": false,
+  "unlisted": false,
+  "editUrl": "https://github.com/SliveredSerf/RedhatCSE/tree/main/docs/resources/troubleshooting.mdx",
+  "tags": [],
+  "version": "current",
+  "frontMatter": {
+    "id": "resources-troubleshooting",
+    "title": "Troubleshooting Guide",
+    "description": "Common break/fix scenarios and how to resolve them",
+    "slug": "/resources/troubleshooting"
+  },
+  "sidebar": "tutorialSidebar",
+  "previous": {
+    "title": "Command Cheatsheet",
+    "permalink": "/RedhatCSE/resources/command-cheatsheet"
+  }
+}

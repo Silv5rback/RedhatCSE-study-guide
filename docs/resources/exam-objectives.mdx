@@ -1,0 +1,125 @@
+---
+id: resources-exam-objectives
+title: Exam Objectives Checklist
+description: RHCSA (EX200) and RHCE (EX294) exam task checklists
+slug: /resources/exam-objectives
+---
+
+# Exam Objectives Checklist
+
+## RHCSA (EX200) — Core System Administration
+
+### Essential Tools
+- [ ] Access a shell prompt and issue commands with correct syntax
+- [ ] Use input-output redirection (`>`, `>>`, `|`, `2>`, etc.)
+- [ ] Use grep and regular expressions to analyze text
+- [ ] Archive, compress, unpack, and uncompress files using tar, gzip, zip
+- [ ] Create and edit text files using Vim
+- [ ] Create, delete, copy, and move files and directories
+- [ ] Create hard and soft links
+- [ ] List, set, and change standard ugo/rwx permissions
+- [ ] Locate, read, and use system documentation including man, info, and files in /usr/share/doc
+
+### Operating Running Systems
+- [ ] Boot, reboot, and shut down a system normally
+- [ ] Boot systems into different targets manually
+- [ ] Interrupt the boot process to gain access to a system
+- [ ] Identify CPU/memory pressure, killing processes, and adjusting process priority
+- [ ] Create and edit simple cron jobs
+- [ ] Locate and interpret system log files and journals
+- [ ] Preserve system SELinux contexts
+- [ ] Start, stop, and check the status of network services
+- [ ] Securely transfer files between systems using scp, rsync, or sftp
+
+### Local Storage
+- [ ] List, create, delete, and remove MBR and GPT partitions
+- [ ] Create and remove physical volumes, volume groups, and logical volumes
+- [ ] Create and configure LVM storage
+- [ ] Configure systems to mount filesystems by UUID
+- [ ] Add new partitions, filesystems, and swap to a system non-destructively
+
+### Basic Container Management (RHCSA 9)
+- [ ] Find and inspect container images
+- [ ] Run containers
+- [ ] Stop and remove containers
+
+### Create and Configure File Systems
+- [ ] Create, mount, unmount, and use vfat, ext4, and xfs file systems
+- [ ] Mount and unmount CIFS and NFS network file systems
+- [ ] Extend existing logical volumes
+- [ ] Create and configure set-GID directories for collaboration
+- [ ] Diagnose and correct file permission issues
+
+### Deploy, Configure, and Maintain Systems
+- [ ] Configure systems to start services at boot
+- [ ] Install and update packages using DNF
+- [ ] Modify the bootloader configuration
+- [ ] Manage users and groups
+- [ ] Use a delegate account (sudo)
+- [ ] Configure host-based and user-based security for SSH
+
+### Manage Basic Networking
+- [ ] Configure IPv4 and IPv6 addresses
+- [ ] Configure hostname resolution
+- [ ] Configure network services to start automatically at boot
+- [ ] Restrict network access using firewall-cmd/firewalld
+
+### Manage Security
+- [ ] Configure SELinux to enforcing or permissive mode
+- [ ] Diagnose and fix SELinux context issues
+- [ ] Manage SELinux booleans
+- [ ] Configure and manage firewalld
+
+## RHCE (EX294) — Red Hat Certified Engineer
+
+### Ansible Core
+- [ ] Install and configure Ansible on a control node
+- [ ] Create and manage static inventories
+- [ ] Run ad-hoc Ansible commands
+- [ ] Write Ansible playbooks
+- [ ] Use Ansible modules for system management
+- [ ] Use variables, facts, and Jinja2 templates
+- [ ] Use conditionals, loops, and handlers
+- [ ] Create and use Ansible roles
+- [ ] Use Ansible Vault for sensitive data
+- [ ] Troubleshoot Ansible playbooks
+
+### RHEL System Management with Ansible
+- [ ] Install and configure software packages
+- [ ] Manage system services
+- [ ] Configure users and groups
+- [ ] Manage storage (partitions, filesystems, LVM)
+- [ ] Configure firewalld
+- [ ] Manage SELinux contexts and booleans
+- [ ] Configure networking
+- [ ] Schedule tasks with cron
+
+## Self-Assessment
+
+Rate your readiness (1-5) for each domain:
+
+- [ ] RHCSA: Essential Tools (shell, Vim, archives, redirection)
+- [ ] RHCSA: Operating Running Systems (systemd, boot, processes)
+- [ ] RHCSA: Local Storage (partitions, filesystems, LVM, swap)
+- [ ] RHCSA: Create and Configure File Systems (mount, extend, permissions)
+- [ ] RHCSA: Deploy, Configure, and Maintain Systems (packages, users, boot)
+- [ ] RHCSA: Manage Basic Networking (IP, hostname, firewalld)
+- [ ] RHCSA: Manage Security (SELinux, contexts, booleans)
+- [ ] RHCE: Ansible Core (inventory, playbooks, roles, vault)
+- [ ] RHCE: RHEL System Management with Ansible (all domains)
+
+## Quiz
+
+<details>
+<summary><strong>Q1: Which exam is a prerequisite for RHCE?</strong></summary>
+<p><strong>Answer:</strong> RHCSA (EX200) is a prerequisite for RHCE (EX294). You must pass RHCSA first.</p>
+</details>
+
+<details>
+<summary><strong>Q2: Which exam focuses primarily on Ansible?</strong></summary>
+<p><strong>Answer:</strong> RHCE (EX294) is an Ansible automation exam. RHCSA covers general system administration.</p>
+</details>
+
+## Next step
+
+Review any domains you rated below 3, then schedule your exam at https://www.redhat.com/en/services/training/certification

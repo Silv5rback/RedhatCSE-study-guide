@@ -1,0 +1,29 @@
+{
+  "id": "phase1-rhcsa/phase1-rhcsa-module08-capstone",
+  "title": "Module 8 — RHCSA Capstone",
+  "description": "Multi-task RHCSA simulation with self-assessment checklist",
+  "source": "@site/docs/phase1-rhcsa/module08-capstone.mdx",
+  "sourceDirName": "phase1-rhcsa",
+  "slug": "/phase1-rhcsa/module08-capstone",
+  "permalink": "/RedhatCSE/phase1-rhcsa/module08-capstone",
+  "draft": false,
+  "unlisted": false,
+  "editUrl": "https://github.com/SliveredSerf/RedhatCSE/tree/main/docs/phase1-rhcsa/module08-capstone.mdx",
+  "tags": [],
+  "version": "current",
+  "frontMatter": {
+    "id": "phase1-rhcsa-module08-capstone",
+    "title": "Module 8 — RHCSA Capstone",
+    "description": "Multi-task RHCSA simulation with self-assessment checklist",
+    "slug": "/phase1-rhcsa/module08-capstone"
+  },
+  "sidebar": "tutorialSidebar",
+  "previous": {
+    "title": "Module 7 — Security & SELinux",
+    "permalink": "/RedhatCSE/phase1-rhcsa/module07-security-selinux"
+  },
+  "next": {
+    "title": "Module 9 — Ansible Basics",
+    "permalink": "/RedhatCSE/phase2-rhce/module09-ansible-basics"
+  }
+}

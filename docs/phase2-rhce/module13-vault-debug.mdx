@@ -1,0 +1,186 @@
+---
+id: phase2-rhce-module13-vault-debug
+title: Module 13 — Ansible Vault & Debugging
+description: Ansible Vault for secrets, playbook debugging, and troubleshooting
+slug: /phase2-rhce/module13-vault-debug
+---
+
+# Phase 2, Module 13 — Ansible Vault & Debugging
+
+## Theory
+
+Ansible Vault encrypts sensitive data (passwords, API keys, SSH keys) so you can safely store it in version control:
+
+- **Vault commands** — `ansible-vault create`, `ansible-vault encrypt`, `ansible-vault decrypt`, `ansible-vault edit`, `ansible-vault view`, `ansible-vault rekey`
+- **Using vaulted files** — `ansible-playbook --ask-vault-pass` or `--vault-password-file`
+- **Vault IDs** — Multiple vaults with different passwords (`--vault-id`)
+
+**Debugging:**
+- **Verbosity** — `-v`, `-vv`, `-vvv`, `-vvvv` for increasing detail
+- **Check mode** — `--check` (dry run, no changes)
+- **Diff mode** — `--diff` (show what would change)
+- **Step mode** — `--step` (prompt before each task)
+- **Start at task** — `--start-at-task` (resume from a specific task)
+
+**Exam reality:** You'll encrypt secrets with Vault and debug playbooks that don't behave as expected.
+
+## Try It
+
+```bash
+# Create an encrypted vault file
+ansible-vault create ~/ansible/vault.yml
+# Enter password when prompted, then add content:
+# db_password: supersecret123
+# api_key: abc123def456
+
+# View vaulted file
+ansible-vault view ~/ansible/vault.yml
+
+# Edit vaulted file
+ansible-vault edit ~/ansible/vault.yml
+
+# Encrypt an existing file
+ansible-vault encrypt ~/ansible/secrets.yml
+
+# Decrypt a file
+ansible-vault decrypt ~/ansible/secrets.yml
+
+# Change vault password
+ansible-vault rekey ~/ansible/vault.yml
+
+# Run playbook with vault
+ansible-playbook -i inventory.ini site.yml --ask-vault-pass
+
+# Or use a password file
+echo "myvaultpassword" > ~/ansible/.vault_pass
+chmod 600 ~/ansible/.vault_pass
+ansible-playbook -i inventory.ini site.yml --vault-password-file ~/ansible/.vault_pass
+```
+
+## Guided Lab
+
+1. **Create a vault file with secrets**
+   ```bash
+   ansible-vault create ~/ansible/vault/db.yml
+   # Add:
+   # db_root_password: DbP@ssw0rd!
+   # db_app_password: AppP@ssw0rd!
+   ```
+
+2. **Create a playbook that uses vaulted variables**
+   ```yaml
+   # ~/ansible/vault-playbook.yml
+   ---
+   - name: Use vaulted secrets
+     hosts: all
+     become: yes
+     vars_files:
+       - vault/db.yml
+     
+     tasks:
+       - name: Show masked secret (don't actually print secrets)
+         ansible.builtin.debug:
+           msg: "Database password is set"
+   
+       - name: Create app config file with vaulted password
+         ansible.builtin.template:
+           src: app.conf.j2
+           dest: /etc/myapp/app.conf
+           mode: '0600'
+   ```
+
+   ```jinja2
+   # ~/ansible/templates/app.conf.j2
+   [database]
+   password = {{ db_root_password }}
+   ```
+
+3. **Run with vault password prompt**
+   ```bash
+   ansible-playbook -i ~/ansible/inventory.ini ~/ansible/vault-playbook.yml --ask-vault-pass
+   ```
+
+4. **Use a vault password file**
+   ```bash
+   echo "myvaultpassword" > ~/ansible/.vault_pass
+   chmod 600 ~/ansible/.vault_pass
+   ansible-playbook -i ~/ansible/inventory.ini ~/ansible/vault-playbook.yml --vault-password-file ~/ansible/.vault_pass
+   ```
+
+5. **Debug with verbosity**
+   ```bash
+   ansible-playbook -i ~/ansible/inventory.ini ~/ansible/vault-playbook.yml -v --vault-password-file ~/ansible/.vault_pass
+   ansible-playbook -i ~/ansible/inventory.ini ~/ansible/vault-playbook.yml -vvv --vault-password-file ~/ansible/.vault_pass
+   ```
+
+6. **Check mode (dry run)**
+   ```bash
+   ansible-playbook -i ~/ansible/inventory.ini ~/ansible/site.yml --check --vault-password-file ~/ansible/.vault_pass
+   ```
+
+7. **Diff mode**
+   ```bash
+   ansible-playbook -i ~/ansible/inventory.ini ~/ansible/site.yml --diff --vault-password-file ~/ansible/.vault_pass
+   ```
+
+8. **Step mode**
+   ```bash
+   ansible-playbook -i ~/ansible/inventory.ini ~/ansible/site.yml --step --vault-password-file ~/ansible/.vault_pass
+   # Press 'y' to run each task, 'n' to skip
+   ```
+
+9. **Start at a specific task**
+   ```bash
+   ansible-playbook -i ~/ansible/inventory.ini ~/ansible/site.yml --start-at-task="Configure web server" --vault-password-file ~/ansible/.vault_pass
+   ```
+
+10. **Syntax check**
+    ```bash
+    ansible-playbook -i ~/ansible/inventory.ini ~/ansible/site.yml --syntax-check
+    ```
+
+**Expected output:** Vault encrypts/decrypts successfully, playbook runs with vaulted variables, debug flags show detailed output, check mode shows no changes made.
+
+:::tip Exam Tip
+Never commit vault passwords to version control. Store them separately and provide them via `--vault-password-file` at runtime.
+:::
+
+## Challenge Trial
+
+Without looking at the steps:
+
+- [ ] Create a vault-encrypted file with `ansible-vault create`
+- [ ] View a vaulted file with `ansible-vault view`
+- [ ] Edit a vaulted file with `ansible-vault edit`
+- [ ] Create a playbook that uses `vars_files` from a vault
+- [ ] Run a playbook with `--ask-vault-pass`
+- [ ] Run a playbook with `--vault-password-file`
+- [ ] Run a playbook in `--check` mode
+- [ ] Run a playbook with `--diff` to see changes
+- [ ] Run a playbook with `-vvv` for verbose output
+- [ ] Run `ansible-playbook --syntax-check` on a playbook
+
+## Quiz
+
+<details>
+<summary><strong>Q1: Which command creates a new vault-encrypted file?</strong></summary>
+<p><strong>Answer:</strong> `ansible-vault create <file>` creates a new encrypted file and opens an editor.</p>
+</details>
+
+<details>
+<summary><strong>Q2: Which flag runs a playbook in check mode (no changes)?</strong></summary>
+<p><strong>Answer:</strong> `--check` (or `-C`) performs a dry run without making any changes.</p>
+</details>
+
+<details>
+<summary><strong>Q3: Which flag shows what would change in diff format?</strong></summary>
+<p><strong>Answer:</strong> `--diff` shows the differences between current and desired state for file/template tasks.</p>
+</details>
+
+:::tip Exam Tip
+Use `--syntax-check` to catch YAML errors before running. Use `-vvv` to see task arguments and variable values during debugging.
+:::
+
+## Next step
+
+[→ Module 14 — RHCE Capstone](./module14-capstone)

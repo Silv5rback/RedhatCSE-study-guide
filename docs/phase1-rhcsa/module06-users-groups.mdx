@@ -1,0 +1,170 @@
+---
+id: phase1-rhcsa-module06-users-groups
+title: Module 6 — Users & Groups
+description: User accounts, groups, passwords, sudo, and ACLs
+slug: /phase1-rhcsa/module06-users-groups
+---
+
+# Phase 1, Module 6 — Users & Groups
+
+## Theory
+
+User and group management is foundational for RHCSA:
+
+- **User accounts** — `useradd`, `usermod`, `userdel`, `passwd`, `chage`
+- **Groups** — `groupadd`, `groupmod`, `groupdel`, `gpasswd`
+- **Sudo** — `/etc/sudoers`, `visudo`, wheel group
+- **ACLs** — `getfacl`, `setfacl` (extended permissions beyond rwx)
+- **User information** — `/etc/passwd`, `/etc/shadow`, `/etc/group`, `id`, `whoami`
+
+**Exam reality:** You'll create users, set passwords, configure sudo, and set ACLs on files/directories. Know the difference between primary and supplementary groups.
+
+## Try It
+
+```bash
+# Create a user
+sudo useradd -m -G wheel alice
+sudo passwd alice
+
+# Check user info
+id alice
+grep alice /etc/passwd
+
+# Create a group
+sudo groupadd developers
+
+# Add user to group
+sudo usermod -aG developers alice
+
+# Set ACL
+sudo setfacl -m u:bob:rwx /home/alice/shared
+sudo getfacl /home/alice/shared
+
+# Remove user
+sudo userdel -r bob
+```
+
+## Guided Lab
+
+1. **Create users**
+   ```bash
+   sudo useradd -m -s /bin/bash alice
+   sudo useradd -m -s /bin/bash bob
+   sudo useradd -m -s /bin/bash charlie
+   sudo passwd alice
+   sudo passwd bob
+   sudo passwd charlie
+   ```
+
+2. **Verify user creation**
+   ```bash
+   id alice
+   id bob
+   grep -E "alice|bob|charlie" /etc/passwd
+   ```
+
+3. **Create groups**
+   ```bash
+   sudo groupadd devteam
+   sudo groupadd opsteam
+   ```
+
+4. **Add users to groups**
+   ```bash
+   sudo usermod -aG devteam alice
+   sudo usermod -aG devteam bob
+   sudo usermod -aG opsteam charlie
+   sudo usermod -aG wheel alice   # Give alice sudo access
+   ```
+
+5. **Verify group membership**
+   ```bash
+   id alice
+   id bob
+   id charlie
+   ```
+
+6. **Set up shared directory with ACLs**
+   ```bash
+   sudo mkdir -p /shared/project
+   sudo chown root:devteam /shared/project
+   sudo chmod 770 /shared/project
+   
+   # Give bob read access (not in devteam)
+   sudo setfacl -m u:bob:rx /shared/project
+   
+   # Give charlie full access
+   sudo setfacl -m u:charlie:rwx /shared/project
+   
+   # Verify ACLs
+   sudo getfacl /shared/project
+   ```
+
+7. **Configure sudo**
+   ```bash
+   # Verify alice can sudo
+   sudo -l -U alice
+   
+   # Test sudo as alice
+   su - alice
+   sudo /usr/bin/whoami
+   exit
+   ```
+
+8. **Password aging**
+   ```bash
+   sudo chage -l alice
+   sudo chage -M 90 -m 7 -W 14 alice   # Max 90 days, min 7, warn 14
+   sudo chage -l alice
+   ```
+
+9. **Remove a user**
+   ```bash
+   sudo userdel -r charlie
+   id charlie   # Should show "no such user"
+   ```
+
+**Expected output:** Users created with correct groups, ACLs set and visible, sudo works, password aging configured, user removed cleanly.
+
+:::tip Exam Tip
+`usermod -aG` adds to a supplementary group WITHOUT removing from others. `usermod -G` (without -a) replaces ALL supplementary groups — dangerous!
+:::
+
+## Challenge Trial
+
+Without looking at the steps:
+
+- [ ] Create three users with home directories
+- [ ] Create two groups
+- [ ] Add users to groups appropriately
+- [ ] Give one user sudo access (wheel group)
+- [ ] Create a shared directory with group ownership
+- [ ] Set an ACL giving a non-group user read access
+- [ ] Verify ACLs with `getfacl`
+- [ ] Check password aging info with `chage -l`
+- [ ] Remove one user completely
+
+## Quiz
+
+<details>
+<summary><strong>Q1: Which usermod flag adds a user to a group WITHOUT removing from other groups?</strong></summary>
+<p><strong>Answer:</strong> `-aG` — `-a` (append) with `-G` adds to supplementary groups without removing existing ones.</p>
+</details>
+
+<details>
+<summary><strong>Q2: Which command sets an ACL giving user 'bob' read+execute on /shared?</strong></summary>
+<p><strong>Answer:</strong> `setfacl -m u:bob:rx /shared` modifies the ACL for user bob with read+execute permissions.</p>
+</details>
+
+<details>
+<summary><strong>Q3: Which file contains encrypted password hashes?</strong></summary>
+<p><strong>Answer:</strong> `/etc/shadow` contains password hashes and aging info; `/etc/passwd` has user account info.</p>
+</details>
+
+:::tip Exam Tip
+Always use `visudo` to edit `/etc/sudoers` — it validates syntax before saving and prevents locking yourself out.
+:::
+
+## Next step
+
+[→ Module 7 — Security & SELinux](./module07-security-selinux)
