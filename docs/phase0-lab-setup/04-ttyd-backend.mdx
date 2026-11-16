@@ -14,9 +14,14 @@ The live shell labs in this guide use **ttyd** — a tool that shares a terminal
 **Why WSL2?** Native Windows has limited PTY (pseudo-terminal) support. ttyd needs a real PTY to allocate a bash shell. WSL2 provides a full Linux kernel with proper PTY support.
 
 **Architecture:**
-```
-Browser (xterm.js) ← WebSocket → ttyd (WSL2) → bash (PTY)
-```
+
+Browser (xterm.js) ← WebSocket → ttyd (WSL2/EC2) → bash (PTY)
+
+<div style={{ textAlign: 'center', margin: '1rem 0' }}>
+  <img src="/RedhatCSE-study-guide/static/svg/lab-architecture.svg" alt="Lab architecture" style={{ maxWidth: '100%', height: 'auto', border: '1px solid var(--ifm-color-border)', borderRadius: 'var(--ifm-global-radius)' }} />
+</div>
+
+> 💡 **Backend choice:** The diagram shows WSL2, but an Amazon EC2 instance works equally well — and is publicly accessible without needing your Windows machine to be on.
 
 ## Try It
 
