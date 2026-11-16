@@ -1,0 +1,9 @@
+{"version": 2, "width": 120, "height": 30, "timestamp": 1794791321, "env": {"SHELL": "/bin/bash", "TERM": "xterm-256color"}}
+[0.005146, "o", "=== SELinux Demo ===\r\n"]
+[0.155047, "o", "/tmp/demo-selinux.sh: line 3: getenforce: command not found\r\n"]
+[0.155329, "o", "---\r\n"]
+[0.304674, "o", "/tmp/demo-selinux.sh: line 5: sestatus: command not found\r\n"]
+[0.305033, "o", "---\r\n"]
+[0.30666, "o", "? /etc/passwd  ? /etc/shadow\r\n"]
+[0.30685, "o", "---\r\nSELinux contexts shown above\r\n"]
+[0.306973, "o", "=== Demo complete ===\r\n"]
