@@ -5,10 +5,10 @@
   "source": "@site/docs/phase1-rhcsa/module05-dnf.mdx",
   "sourceDirName": "phase1-rhcsa",
   "slug": "/phase1-rhcsa/module05-dnf",
-  "permalink": "/RedhatCSE/phase1-rhcsa/module05-dnf",
+  "permalink": "/RedhatCSE-study-guide/phase1-rhcsa/module05-dnf",
   "draft": false,
   "unlisted": false,
-  "editUrl": "https://github.com/SliveredSerf/RedhatCSE/tree/main/docs/phase1-rhcsa/module05-dnf.mdx",
+  "editUrl": "https://github.com/Silv5rback/RedhatCSE-study-guide/tree/main/docs/phase1-rhcsa/module05-dnf.mdx",
   "tags": [],
   "version": "current",
   "frontMatter": {
@@ -20,10 +20,10 @@
   "sidebar": "tutorialSidebar",
   "previous": {
     "title": "Module 4 — LVM & Stratis",
-    "permalink": "/RedhatCSE/phase1-rhcsa/module04-lvm-stratis"
+    "permalink": "/RedhatCSE-study-guide/phase1-rhcsa/module04-lvm-stratis"
   },
   "next": {
     "title": "Module 6 — Users & Groups",
-    "permalink": "/RedhatCSE/phase1-rhcsa/module06-users-groups"
+    "permalink": "/RedhatCSE-study-guide/phase1-rhcsa/module06-users-groups"
   }
 }

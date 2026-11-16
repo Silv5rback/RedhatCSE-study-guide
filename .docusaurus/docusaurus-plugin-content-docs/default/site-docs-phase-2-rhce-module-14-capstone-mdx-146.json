@@ -5,10 +5,10 @@
   "source": "@site/docs/phase2-rhce/module14-capstone.mdx",
   "sourceDirName": "phase2-rhce",
   "slug": "/phase2-rhce/module14-capstone",
-  "permalink": "/RedhatCSE/phase2-rhce/module14-capstone",
+  "permalink": "/RedhatCSE-study-guide/phase2-rhce/module14-capstone",
   "draft": false,
   "unlisted": false,
-  "editUrl": "https://github.com/SliveredSerf/RedhatCSE/tree/main/docs/phase2-rhce/module14-capstone.mdx",
+  "editUrl": "https://github.com/Silv5rback/RedhatCSE-study-guide/tree/main/docs/phase2-rhce/module14-capstone.mdx",
   "tags": [],
   "version": "current",
   "frontMatter": {
@@ -20,10 +20,10 @@
   "sidebar": "tutorialSidebar",
   "previous": {
     "title": "Module 13 — Ansible Vault & Debugging",
-    "permalink": "/RedhatCSE/phase2-rhce/module13-vault-debug"
+    "permalink": "/RedhatCSE-study-guide/phase2-rhce/module13-vault-debug"
   },
   "next": {
     "title": "Exam Objectives Checklist",
-    "permalink": "/RedhatCSE/resources/exam-objectives"
+    "permalink": "/RedhatCSE-study-guide/resources/exam-objectives"
   }
 }

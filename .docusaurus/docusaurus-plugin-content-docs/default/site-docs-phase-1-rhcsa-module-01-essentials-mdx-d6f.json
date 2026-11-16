@@ -5,10 +5,10 @@
   "source": "@site/docs/phase1-rhcsa/module01-essentials.mdx",
   "sourceDirName": "phase1-rhcsa",
   "slug": "/phase1-rhcsa/module01-essentials",
-  "permalink": "/RedhatCSE/phase1-rhcsa/module01-essentials",
+  "permalink": "/RedhatCSE-study-guide/phase1-rhcsa/module01-essentials",
   "draft": false,
   "unlisted": false,
-  "editUrl": "https://github.com/SliveredSerf/RedhatCSE/tree/main/docs/phase1-rhcsa/module01-essentials.mdx",
+  "editUrl": "https://github.com/Silv5rback/RedhatCSE-study-guide/tree/main/docs/phase1-rhcsa/module01-essentials.mdx",
   "tags": [],
   "version": "current",
   "frontMatter": {
@@ -20,10 +20,10 @@
   "sidebar": "tutorialSidebar",
   "previous": {
     "title": "04 — ttyd Backend",
-    "permalink": "/RedhatCSE/phase0-lab-setup/04-ttyd-backend"
+    "permalink": "/RedhatCSE-study-guide/phase0-lab-setup/04-ttyd-backend"
   },
   "next": {
     "title": "Module 2 — Boot & systemd",
-    "permalink": "/RedhatCSE/phase1-rhcsa/module02-boot-systemd"
+    "permalink": "/RedhatCSE-study-guide/phase1-rhcsa/module02-boot-systemd"
   }
 }

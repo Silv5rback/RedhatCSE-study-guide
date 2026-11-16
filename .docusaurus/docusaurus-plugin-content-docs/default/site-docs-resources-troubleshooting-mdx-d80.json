@@ -5,10 +5,10 @@
   "source": "@site/docs/resources/troubleshooting.mdx",
   "sourceDirName": "resources",
   "slug": "/resources/troubleshooting",
-  "permalink": "/RedhatCSE/resources/troubleshooting",
+  "permalink": "/RedhatCSE-study-guide/resources/troubleshooting",
   "draft": false,
   "unlisted": false,
-  "editUrl": "https://github.com/SliveredSerf/RedhatCSE/tree/main/docs/resources/troubleshooting.mdx",
+  "editUrl": "https://github.com/Silv5rback/RedhatCSE-study-guide/tree/main/docs/resources/troubleshooting.mdx",
   "tags": [],
   "version": "current",
   "frontMatter": {
@@ -20,6 +20,6 @@
   "sidebar": "tutorialSidebar",
   "previous": {
     "title": "Command Cheatsheet",
-    "permalink": "/RedhatCSE/resources/command-cheatsheet"
+    "permalink": "/RedhatCSE-study-guide/resources/command-cheatsheet"
   }
 }

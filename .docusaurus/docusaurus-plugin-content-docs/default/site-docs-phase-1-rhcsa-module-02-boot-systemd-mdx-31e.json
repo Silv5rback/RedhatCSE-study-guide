@@ -5,10 +5,10 @@
   "source": "@site/docs/phase1-rhcsa/module02-boot-systemd.mdx",
   "sourceDirName": "phase1-rhcsa",
   "slug": "/phase1-rhcsa/module02-boot-systemd",
-  "permalink": "/RedhatCSE/phase1-rhcsa/module02-boot-systemd",
+  "permalink": "/RedhatCSE-study-guide/phase1-rhcsa/module02-boot-systemd",
   "draft": false,
   "unlisted": false,
-  "editUrl": "https://github.com/SliveredSerf/RedhatCSE/tree/main/docs/phase1-rhcsa/module02-boot-systemd.mdx",
+  "editUrl": "https://github.com/Silv5rback/RedhatCSE-study-guide/tree/main/docs/phase1-rhcsa/module02-boot-systemd.mdx",
   "tags": [],
   "version": "current",
   "frontMatter": {
@@ -20,10 +20,10 @@
   "sidebar": "tutorialSidebar",
   "previous": {
     "title": "Module 1 — Essentials",
-    "permalink": "/RedhatCSE/phase1-rhcsa/module01-essentials"
+    "permalink": "/RedhatCSE-study-guide/phase1-rhcsa/module01-essentials"
   },
   "next": {
     "title": "Module 3 — Storage",
-    "permalink": "/RedhatCSE/phase1-rhcsa/module03-storage"
+    "permalink": "/RedhatCSE-study-guide/phase1-rhcsa/module03-storage"
   }
 }

@@ -1,122 +1,122 @@
 {
   "docusaurus-plugin-content-docs": {
     "default": {
-      "path": "/RedhatCSE/",
+      "path": "/RedhatCSE-study-guide/",
       "versions": [
         {
           "name": "current",
           "label": "Next",
           "isLast": true,
-          "path": "/RedhatCSE/",
+          "path": "/RedhatCSE-study-guide/",
           "mainDocId": "home",
           "docs": [
             {
               "id": "home",
-              "path": "/RedhatCSE/"
+              "path": "/RedhatCSE-study-guide/"
             },
             {
               "id": "phase0-lab-setup/phase0-lab-setup-01-wsl-vm-install",
-              "path": "/RedhatCSE/phase0-lab-setup/01-wsl-vm-install",
+              "path": "/RedhatCSE-study-guide/phase0-lab-setup/01-wsl-vm-install",
               "sidebar": "tutorialSidebar"
             },
             {
               "id": "phase0-lab-setup/phase0-lab-setup-02-rhel-install",
-              "path": "/RedhatCSE/phase0-lab-setup/02-rhel-install",
+              "path": "/RedhatCSE-study-guide/phase0-lab-setup/02-rhel-install",
               "sidebar": "tutorialSidebar"
             },
             {
               "id": "phase0-lab-setup/phase0-lab-setup-03-ssh-keys-sudo",
-              "path": "/RedhatCSE/phase0-lab-setup/03-ssh-keys-sudo",
+              "path": "/RedhatCSE-study-guide/phase0-lab-setup/03-ssh-keys-sudo",
               "sidebar": "tutorialSidebar"
             },
             {
               "id": "phase0-lab-setup/phase0-lab-setup-04-ttyd-backend",
-              "path": "/RedhatCSE/phase0-lab-setup/04-ttyd-backend",
+              "path": "/RedhatCSE-study-guide/phase0-lab-setup/04-ttyd-backend",
               "sidebar": "tutorialSidebar"
             },
             {
               "id": "phase1-rhcsa/phase1-rhcsa-module01-essentials",
-              "path": "/RedhatCSE/phase1-rhcsa/module01-essentials",
+              "path": "/RedhatCSE-study-guide/phase1-rhcsa/module01-essentials",
               "sidebar": "tutorialSidebar"
             },
             {
               "id": "phase1-rhcsa/phase1-rhcsa-module02-boot-systemd",
-              "path": "/RedhatCSE/phase1-rhcsa/module02-boot-systemd",
+              "path": "/RedhatCSE-study-guide/phase1-rhcsa/module02-boot-systemd",
               "sidebar": "tutorialSidebar"
             },
             {
               "id": "phase1-rhcsa/phase1-rhcsa-module03-storage",
-              "path": "/RedhatCSE/phase1-rhcsa/module03-storage",
+              "path": "/RedhatCSE-study-guide/phase1-rhcsa/module03-storage",
               "sidebar": "tutorialSidebar"
             },
             {
               "id": "phase1-rhcsa/phase1-rhcsa-module04-lvm-stratis",
-              "path": "/RedhatCSE/phase1-rhcsa/module04-lvm-stratis",
+              "path": "/RedhatCSE-study-guide/phase1-rhcsa/module04-lvm-stratis",
               "sidebar": "tutorialSidebar"
             },
             {
               "id": "phase1-rhcsa/phase1-rhcsa-module05-dnf",
-              "path": "/RedhatCSE/phase1-rhcsa/module05-dnf",
+              "path": "/RedhatCSE-study-guide/phase1-rhcsa/module05-dnf",
               "sidebar": "tutorialSidebar"
             },
             {
               "id": "phase1-rhcsa/phase1-rhcsa-module06-users-groups",
-              "path": "/RedhatCSE/phase1-rhcsa/module06-users-groups",
+              "path": "/RedhatCSE-study-guide/phase1-rhcsa/module06-users-groups",
               "sidebar": "tutorialSidebar"
             },
             {
               "id": "phase1-rhcsa/phase1-rhcsa-module07-security-selinux",
-              "path": "/RedhatCSE/phase1-rhcsa/module07-security-selinux",
+              "path": "/RedhatCSE-study-guide/phase1-rhcsa/module07-security-selinux",
               "sidebar": "tutorialSidebar"
             },
             {
               "id": "phase1-rhcsa/phase1-rhcsa-module08-capstone",
-              "path": "/RedhatCSE/phase1-rhcsa/module08-capstone",
+              "path": "/RedhatCSE-study-guide/phase1-rhcsa/module08-capstone",
               "sidebar": "tutorialSidebar"
             },
             {
               "id": "phase2-rhce/phase2-rhce-module09-ansible-basics",
-              "path": "/RedhatCSE/phase2-rhce/module09-ansible-basics",
+              "path": "/RedhatCSE-study-guide/phase2-rhce/module09-ansible-basics",
               "sidebar": "tutorialSidebar"
             },
             {
               "id": "phase2-rhce/phase2-rhce-module10-playbooks",
-              "path": "/RedhatCSE/phase2-rhce/module10-playbooks",
+              "path": "/RedhatCSE-study-guide/phase2-rhce/module10-playbooks",
               "sidebar": "tutorialSidebar"
             },
             {
               "id": "phase2-rhce/phase2-rhce-module11-roles",
-              "path": "/RedhatCSE/phase2-rhce/module11-roles",
+              "path": "/RedhatCSE-study-guide/phase2-rhce/module11-roles",
               "sidebar": "tutorialSidebar"
             },
             {
               "id": "phase2-rhce/phase2-rhce-module12-rhel-mgmt",
-              "path": "/RedhatCSE/phase2-rhce/module12-rhel-mgmt",
+              "path": "/RedhatCSE-study-guide/phase2-rhce/module12-rhel-mgmt",
               "sidebar": "tutorialSidebar"
             },
             {
               "id": "phase2-rhce/phase2-rhce-module13-vault-debug",
-              "path": "/RedhatCSE/phase2-rhce/module13-vault-debug",
+              "path": "/RedhatCSE-study-guide/phase2-rhce/module13-vault-debug",
               "sidebar": "tutorialSidebar"
             },
             {
               "id": "phase2-rhce/phase2-rhce-module14-capstone",
-              "path": "/RedhatCSE/phase2-rhce/module14-capstone",
+              "path": "/RedhatCSE-study-guide/phase2-rhce/module14-capstone",
               "sidebar": "tutorialSidebar"
             },
             {
               "id": "resources/resources-command-cheatsheet",
-              "path": "/RedhatCSE/resources/command-cheatsheet",
+              "path": "/RedhatCSE-study-guide/resources/command-cheatsheet",
               "sidebar": "tutorialSidebar"
             },
             {
               "id": "resources/resources-exam-objectives",
-              "path": "/RedhatCSE/resources/exam-objectives",
+              "path": "/RedhatCSE-study-guide/resources/exam-objectives",
               "sidebar": "tutorialSidebar"
             },
             {
               "id": "resources/resources-troubleshooting",
-              "path": "/RedhatCSE/resources/troubleshooting",
+              "path": "/RedhatCSE-study-guide/resources/troubleshooting",
               "sidebar": "tutorialSidebar"
             }
           ],
@@ -124,7 +124,7 @@
           "sidebars": {
             "tutorialSidebar": {
               "link": {
-                "path": "/RedhatCSE/phase0-lab-setup/01-wsl-vm-install",
+                "path": "/RedhatCSE-study-guide/phase0-lab-setup/01-wsl-vm-install",
                 "label": "phase0-lab-setup/phase0-lab-setup-01-wsl-vm-install"
               }
             }

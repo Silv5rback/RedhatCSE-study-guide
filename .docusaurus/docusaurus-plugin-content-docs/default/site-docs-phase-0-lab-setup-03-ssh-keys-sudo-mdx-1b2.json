@@ -5,10 +5,10 @@
   "source": "@site/docs/phase0-lab-setup/03-ssh-keys-sudo.mdx",
   "sourceDirName": "phase0-lab-setup",
   "slug": "/phase0-lab-setup/03-ssh-keys-sudo",
-  "permalink": "/RedhatCSE/phase0-lab-setup/03-ssh-keys-sudo",
+  "permalink": "/RedhatCSE-study-guide/phase0-lab-setup/03-ssh-keys-sudo",
   "draft": false,
   "unlisted": false,
-  "editUrl": "https://github.com/SliveredSerf/RedhatCSE/tree/main/docs/phase0-lab-setup/03-ssh-keys-sudo.mdx",
+  "editUrl": "https://github.com/Silv5rback/RedhatCSE-study-guide/tree/main/docs/phase0-lab-setup/03-ssh-keys-sudo.mdx",
   "tags": [],
   "version": "current",
   "sidebarPosition": 3,
@@ -21,10 +21,10 @@
   "sidebar": "tutorialSidebar",
   "previous": {
     "title": "02 — RHEL Install",
-    "permalink": "/RedhatCSE/phase0-lab-setup/02-rhel-install"
+    "permalink": "/RedhatCSE-study-guide/phase0-lab-setup/02-rhel-install"
   },
   "next": {
     "title": "04 — ttyd Backend",
-    "permalink": "/RedhatCSE/phase0-lab-setup/04-ttyd-backend"
+    "permalink": "/RedhatCSE-study-guide/phase0-lab-setup/04-ttyd-backend"
   }
 }

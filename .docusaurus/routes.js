@@ -3,151 +3,151 @@ import ComponentCreator from '@docusaurus/ComponentCreator';
 
 export default [
   {
-    path: '/RedhatCSE/lab-shell',
-    component: ComponentCreator('/RedhatCSE/lab-shell', '3b7'),
+    path: '/RedhatCSE-study-guide/lab-shell',
+    component: ComponentCreator('/RedhatCSE-study-guide/lab-shell', 'fe3'),
     exact: true
   },
   {
-    path: '/RedhatCSE/',
-    component: ComponentCreator('/RedhatCSE/', 'fb5'),
+    path: '/RedhatCSE-study-guide/',
+    component: ComponentCreator('/RedhatCSE-study-guide/', '831'),
     routes: [
       {
-        path: '/RedhatCSE/',
-        component: ComponentCreator('/RedhatCSE/', '1ba'),
+        path: '/RedhatCSE-study-guide/',
+        component: ComponentCreator('/RedhatCSE-study-guide/', 'e8b'),
         routes: [
           {
-            path: '/RedhatCSE/',
-            component: ComponentCreator('/RedhatCSE/', 'e4a'),
+            path: '/RedhatCSE-study-guide/',
+            component: ComponentCreator('/RedhatCSE-study-guide/', '654'),
             routes: [
               {
-                path: '/RedhatCSE/phase0-lab-setup/01-wsl-vm-install',
-                component: ComponentCreator('/RedhatCSE/phase0-lab-setup/01-wsl-vm-install', '483'),
+                path: '/RedhatCSE-study-guide/phase0-lab-setup/01-wsl-vm-install',
+                component: ComponentCreator('/RedhatCSE-study-guide/phase0-lab-setup/01-wsl-vm-install', '566'),
                 exact: true,
                 sidebar: "tutorialSidebar"
               },
               {
-                path: '/RedhatCSE/phase0-lab-setup/02-rhel-install',
-                component: ComponentCreator('/RedhatCSE/phase0-lab-setup/02-rhel-install', 'fac'),
+                path: '/RedhatCSE-study-guide/phase0-lab-setup/02-rhel-install',
+                component: ComponentCreator('/RedhatCSE-study-guide/phase0-lab-setup/02-rhel-install', '64c'),
                 exact: true,
                 sidebar: "tutorialSidebar"
               },
               {
-                path: '/RedhatCSE/phase0-lab-setup/03-ssh-keys-sudo',
-                component: ComponentCreator('/RedhatCSE/phase0-lab-setup/03-ssh-keys-sudo', 'f9b'),
+                path: '/RedhatCSE-study-guide/phase0-lab-setup/03-ssh-keys-sudo',
+                component: ComponentCreator('/RedhatCSE-study-guide/phase0-lab-setup/03-ssh-keys-sudo', 'b20'),
                 exact: true,
                 sidebar: "tutorialSidebar"
               },
               {
-                path: '/RedhatCSE/phase0-lab-setup/04-ttyd-backend',
-                component: ComponentCreator('/RedhatCSE/phase0-lab-setup/04-ttyd-backend', 'ffb'),
+                path: '/RedhatCSE-study-guide/phase0-lab-setup/04-ttyd-backend',
+                component: ComponentCreator('/RedhatCSE-study-guide/phase0-lab-setup/04-ttyd-backend', '9a7'),
                 exact: true,
                 sidebar: "tutorialSidebar"
               },
               {
-                path: '/RedhatCSE/phase1-rhcsa/module01-essentials',
-                component: ComponentCreator('/RedhatCSE/phase1-rhcsa/module01-essentials', 'bea'),
+                path: '/RedhatCSE-study-guide/phase1-rhcsa/module01-essentials',
+                component: ComponentCreator('/RedhatCSE-study-guide/phase1-rhcsa/module01-essentials', '1f1'),
                 exact: true,
                 sidebar: "tutorialSidebar"
               },
               {
-                path: '/RedhatCSE/phase1-rhcsa/module02-boot-systemd',
-                component: ComponentCreator('/RedhatCSE/phase1-rhcsa/module02-boot-systemd', 'faa'),
+                path: '/RedhatCSE-study-guide/phase1-rhcsa/module02-boot-systemd',
+                component: ComponentCreator('/RedhatCSE-study-guide/phase1-rhcsa/module02-boot-systemd', 'af9'),
                 exact: true,
                 sidebar: "tutorialSidebar"
               },
               {
-                path: '/RedhatCSE/phase1-rhcsa/module03-storage',
-                component: ComponentCreator('/RedhatCSE/phase1-rhcsa/module03-storage', '5b7'),
+                path: '/RedhatCSE-study-guide/phase1-rhcsa/module03-storage',
+                component: ComponentCreator('/RedhatCSE-study-guide/phase1-rhcsa/module03-storage', 'c08'),
                 exact: true,
                 sidebar: "tutorialSidebar"
               },
               {
-                path: '/RedhatCSE/phase1-rhcsa/module04-lvm-stratis',
-                component: ComponentCreator('/RedhatCSE/phase1-rhcsa/module04-lvm-stratis', '6dd'),
+                path: '/RedhatCSE-study-guide/phase1-rhcsa/module04-lvm-stratis',
+                component: ComponentCreator('/RedhatCSE-study-guide/phase1-rhcsa/module04-lvm-stratis', '4d4'),
                 exact: true,
                 sidebar: "tutorialSidebar"
               },
               {
-                path: '/RedhatCSE/phase1-rhcsa/module05-dnf',
-                component: ComponentCreator('/RedhatCSE/phase1-rhcsa/module05-dnf', '415'),
+                path: '/RedhatCSE-study-guide/phase1-rhcsa/module05-dnf',
+                component: ComponentCreator('/RedhatCSE-study-guide/phase1-rhcsa/module05-dnf', 'fe3'),
                 exact: true,
                 sidebar: "tutorialSidebar"
               },
               {
-                path: '/RedhatCSE/phase1-rhcsa/module06-users-groups',
-                component: ComponentCreator('/RedhatCSE/phase1-rhcsa/module06-users-groups', '03e'),
+                path: '/RedhatCSE-study-guide/phase1-rhcsa/module06-users-groups',
+                component: ComponentCreator('/RedhatCSE-study-guide/phase1-rhcsa/module06-users-groups', 'b98'),
                 exact: true,
                 sidebar: "tutorialSidebar"
               },
               {
-                path: '/RedhatCSE/phase1-rhcsa/module07-security-selinux',
-                component: ComponentCreator('/RedhatCSE/phase1-rhcsa/module07-security-selinux', '951'),
+                path: '/RedhatCSE-study-guide/phase1-rhcsa/module07-security-selinux',
+                component: ComponentCreator('/RedhatCSE-study-guide/phase1-rhcsa/module07-security-selinux', '71f'),
                 exact: true,
                 sidebar: "tutorialSidebar"
               },
               {
-                path: '/RedhatCSE/phase1-rhcsa/module08-capstone',
-                component: ComponentCreator('/RedhatCSE/phase1-rhcsa/module08-capstone', '7dc'),
+                path: '/RedhatCSE-study-guide/phase1-rhcsa/module08-capstone',
+                component: ComponentCreator('/RedhatCSE-study-guide/phase1-rhcsa/module08-capstone', 'e3d'),
                 exact: true,
                 sidebar: "tutorialSidebar"
               },
               {
-                path: '/RedhatCSE/phase2-rhce/module09-ansible-basics',
-                component: ComponentCreator('/RedhatCSE/phase2-rhce/module09-ansible-basics', '316'),
+                path: '/RedhatCSE-study-guide/phase2-rhce/module09-ansible-basics',
+                component: ComponentCreator('/RedhatCSE-study-guide/phase2-rhce/module09-ansible-basics', '753'),
                 exact: true,
                 sidebar: "tutorialSidebar"
               },
               {
-                path: '/RedhatCSE/phase2-rhce/module10-playbooks',
-                component: ComponentCreator('/RedhatCSE/phase2-rhce/module10-playbooks', '4ef'),
+                path: '/RedhatCSE-study-guide/phase2-rhce/module10-playbooks',
+                component: ComponentCreator('/RedhatCSE-study-guide/phase2-rhce/module10-playbooks', '744'),
                 exact: true,
                 sidebar: "tutorialSidebar"
               },
               {
-                path: '/RedhatCSE/phase2-rhce/module11-roles',
-                component: ComponentCreator('/RedhatCSE/phase2-rhce/module11-roles', 'b8f'),
+                path: '/RedhatCSE-study-guide/phase2-rhce/module11-roles',
+                component: ComponentCreator('/RedhatCSE-study-guide/phase2-rhce/module11-roles', '9bc'),
                 exact: true,
                 sidebar: "tutorialSidebar"
               },
               {
-                path: '/RedhatCSE/phase2-rhce/module12-rhel-mgmt',
-                component: ComponentCreator('/RedhatCSE/phase2-rhce/module12-rhel-mgmt', 'f5b'),
+                path: '/RedhatCSE-study-guide/phase2-rhce/module12-rhel-mgmt',
+                component: ComponentCreator('/RedhatCSE-study-guide/phase2-rhce/module12-rhel-mgmt', 'cd6'),
                 exact: true,
                 sidebar: "tutorialSidebar"
               },
               {
-                path: '/RedhatCSE/phase2-rhce/module13-vault-debug',
-                component: ComponentCreator('/RedhatCSE/phase2-rhce/module13-vault-debug', 'feb'),
+                path: '/RedhatCSE-study-guide/phase2-rhce/module13-vault-debug',
+                component: ComponentCreator('/RedhatCSE-study-guide/phase2-rhce/module13-vault-debug', 'dc1'),
                 exact: true,
                 sidebar: "tutorialSidebar"
               },
               {
-                path: '/RedhatCSE/phase2-rhce/module14-capstone',
-                component: ComponentCreator('/RedhatCSE/phase2-rhce/module14-capstone', 'a64'),
+                path: '/RedhatCSE-study-guide/phase2-rhce/module14-capstone',
+                component: ComponentCreator('/RedhatCSE-study-guide/phase2-rhce/module14-capstone', 'e99'),
                 exact: true,
                 sidebar: "tutorialSidebar"
               },
               {
-                path: '/RedhatCSE/resources/command-cheatsheet',
-                component: ComponentCreator('/RedhatCSE/resources/command-cheatsheet', '288'),
+                path: '/RedhatCSE-study-guide/resources/command-cheatsheet',
+                component: ComponentCreator('/RedhatCSE-study-guide/resources/command-cheatsheet', '6e9'),
                 exact: true,
                 sidebar: "tutorialSidebar"
               },
               {
-                path: '/RedhatCSE/resources/exam-objectives',
-                component: ComponentCreator('/RedhatCSE/resources/exam-objectives', '02a'),
+                path: '/RedhatCSE-study-guide/resources/exam-objectives',
+                component: ComponentCreator('/RedhatCSE-study-guide/resources/exam-objectives', '968'),
                 exact: true,
                 sidebar: "tutorialSidebar"
               },
               {
-                path: '/RedhatCSE/resources/troubleshooting',
-                component: ComponentCreator('/RedhatCSE/resources/troubleshooting', 'cf0'),
+                path: '/RedhatCSE-study-guide/resources/troubleshooting',
+                component: ComponentCreator('/RedhatCSE-study-guide/resources/troubleshooting', '50f'),
                 exact: true,
                 sidebar: "tutorialSidebar"
               },
               {
-                path: '/RedhatCSE/',
-                component: ComponentCreator('/RedhatCSE/', '7c5'),
+                path: '/RedhatCSE-study-guide/',
+                component: ComponentCreator('/RedhatCSE-study-guide/', '66b'),
                 exact: true
               }
             ]

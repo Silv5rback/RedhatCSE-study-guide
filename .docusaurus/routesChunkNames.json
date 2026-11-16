@@ -1,109 +1,109 @@
 {
-  "/RedhatCSE/lab-shell-3b7": {
+  "/RedhatCSE-study-guide/lab-shell-fe3": {
     "__comp": "75f86681",
     "__context": {
       "plugin": "a7456010"
     },
     "config": "5e9f5e1a"
   },
-  "/RedhatCSE/-fb5": {
+  "/RedhatCSE-study-guide/-831": {
     "__comp": "5e95c892",
     "__context": {
       "plugin": "aba21aa0"
     }
   },
-  "/RedhatCSE/-1ba": {
+  "/RedhatCSE-study-guide/-e8b": {
     "__comp": "a7bd4aaa",
-    "__props": "681a0929"
+    "__props": "2d87aa35"
   },
-  "/RedhatCSE/-e4a": {
+  "/RedhatCSE-study-guide/-654": {
     "__comp": "a94703ab"
   },
-  "/RedhatCSE/phase0-lab-setup/01-wsl-vm-install-483": {
+  "/RedhatCSE-study-guide/phase0-lab-setup/01-wsl-vm-install-566": {
     "__comp": "17896441",
     "content": "7d68818d"
   },
-  "/RedhatCSE/phase0-lab-setup/02-rhel-install-fac": {
+  "/RedhatCSE-study-guide/phase0-lab-setup/02-rhel-install-64c": {
     "__comp": "17896441",
     "content": "c44ee2f1"
   },
-  "/RedhatCSE/phase0-lab-setup/03-ssh-keys-sudo-f9b": {
+  "/RedhatCSE-study-guide/phase0-lab-setup/03-ssh-keys-sudo-b20": {
     "__comp": "17896441",
     "content": "1b2c6afe"
   },
-  "/RedhatCSE/phase0-lab-setup/04-ttyd-backend-ffb": {
+  "/RedhatCSE-study-guide/phase0-lab-setup/04-ttyd-backend-9a7": {
     "__comp": "17896441",
     "content": "dc9cc034"
   },
-  "/RedhatCSE/phase1-rhcsa/module01-essentials-bea": {
+  "/RedhatCSE-study-guide/phase1-rhcsa/module01-essentials-1f1": {
     "__comp": "17896441",
     "content": "d6fb2d3a"
   },
-  "/RedhatCSE/phase1-rhcsa/module02-boot-systemd-faa": {
+  "/RedhatCSE-study-guide/phase1-rhcsa/module02-boot-systemd-af9": {
     "__comp": "17896441",
     "content": "31ec07d7"
   },
-  "/RedhatCSE/phase1-rhcsa/module03-storage-5b7": {
+  "/RedhatCSE-study-guide/phase1-rhcsa/module03-storage-c08": {
     "__comp": "17896441",
     "content": "a0356e31"
   },
-  "/RedhatCSE/phase1-rhcsa/module04-lvm-stratis-6dd": {
+  "/RedhatCSE-study-guide/phase1-rhcsa/module04-lvm-stratis-4d4": {
     "__comp": "17896441",
     "content": "4520a235"
   },
-  "/RedhatCSE/phase1-rhcsa/module05-dnf-415": {
+  "/RedhatCSE-study-guide/phase1-rhcsa/module05-dnf-fe3": {
     "__comp": "17896441",
     "content": "8be56b66"
   },
-  "/RedhatCSE/phase1-rhcsa/module06-users-groups-03e": {
+  "/RedhatCSE-study-guide/phase1-rhcsa/module06-users-groups-b98": {
     "__comp": "17896441",
     "content": "7322679d"
   },
-  "/RedhatCSE/phase1-rhcsa/module07-security-selinux-951": {
+  "/RedhatCSE-study-guide/phase1-rhcsa/module07-security-selinux-71f": {
     "__comp": "17896441",
     "content": "016787fc"
   },
-  "/RedhatCSE/phase1-rhcsa/module08-capstone-7dc": {
+  "/RedhatCSE-study-guide/phase1-rhcsa/module08-capstone-e3d": {
     "__comp": "17896441",
     "content": "412e24c2"
   },
-  "/RedhatCSE/phase2-rhce/module09-ansible-basics-316": {
+  "/RedhatCSE-study-guide/phase2-rhce/module09-ansible-basics-753": {
     "__comp": "17896441",
     "content": "5e3efe01"
   },
-  "/RedhatCSE/phase2-rhce/module10-playbooks-4ef": {
+  "/RedhatCSE-study-guide/phase2-rhce/module10-playbooks-744": {
     "__comp": "17896441",
     "content": "875feed8"
   },
-  "/RedhatCSE/phase2-rhce/module11-roles-b8f": {
+  "/RedhatCSE-study-guide/phase2-rhce/module11-roles-9bc": {
     "__comp": "17896441",
     "content": "ffdd1c52"
   },
-  "/RedhatCSE/phase2-rhce/module12-rhel-mgmt-f5b": {
+  "/RedhatCSE-study-guide/phase2-rhce/module12-rhel-mgmt-cd6": {
     "__comp": "17896441",
     "content": "99951a48"
   },
-  "/RedhatCSE/phase2-rhce/module13-vault-debug-feb": {
+  "/RedhatCSE-study-guide/phase2-rhce/module13-vault-debug-dc1": {
     "__comp": "17896441",
     "content": "f9fc962b"
   },
-  "/RedhatCSE/phase2-rhce/module14-capstone-a64": {
+  "/RedhatCSE-study-guide/phase2-rhce/module14-capstone-e99": {
     "__comp": "17896441",
     "content": "146e26c7"
   },
-  "/RedhatCSE/resources/command-cheatsheet-288": {
+  "/RedhatCSE-study-guide/resources/command-cheatsheet-6e9": {
     "__comp": "17896441",
     "content": "272b9e58"
   },
-  "/RedhatCSE/resources/exam-objectives-02a": {
+  "/RedhatCSE-study-guide/resources/exam-objectives-968": {
     "__comp": "17896441",
     "content": "dac2c3db"
   },
-  "/RedhatCSE/resources/troubleshooting-cf0": {
+  "/RedhatCSE-study-guide/resources/troubleshooting-50f": {
     "__comp": "17896441",
     "content": "d8018d6a"
   },
-  "/RedhatCSE/-7c5": {
+  "/RedhatCSE-study-guide/-66b": {
     "__comp": "17896441",
     "content": "4edc808e"
   }

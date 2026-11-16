@@ -8,15 +8,15 @@ const config = {
   favicon: 'img/favicon.ico',
 
   // Set the production url of your site here
-  url: 'https://your-username.github.io/',
+  url: 'https://silv5rback.github.io/',
   // Set the /<baseUrl>/ pathname under which your site is served
   // For GitHub pages deployment, it is often '/<projectName>/'
-  baseUrl: '/RedhatCSE/',
+  baseUrl: '/RedhatCSE-study-guide/',
 
   // GitHub pages deployment config.
   // If you aren't using GitHub pages, you don't need these.
-  organizationName: 'SliveredSerf', // Usually your GitHub org/user name.
-  projectName: 'RedhatCSE', // Usually your repo name.
+  organizationName: 'Silv5rback', // Usually your GitHub org/user name.
+  projectName: 'RedhatCSE-study-guide', // Usually your repo name.
 
   onBrokenLinks: 'throw',
   onBrokenMarkdownLinks: 'warn',
@@ -39,7 +39,7 @@ const config = {
           // Please change this to your repo.
           // Remove this to remove the "edit this page" links.
           editUrl:
-            'https://github.com/SliveredSerf/RedhatCSE/tree/main/',
+            'https://github.com/Silv5rback/RedhatCSE-study-guide/tree/main/',
           routeBasePath: '/', // Serve docs at root
         },
         blog: false,
@@ -71,7 +71,7 @@ const config = {
             label: 'Study Guide',
           },
           {
-            href: 'https://github.com/SliveredSerf/RedhatCSE',
+            href: 'https://github.com/Silv5rback/RedhatCSE-study-guide',
             label: 'GitHub',
             position: 'right',
           },
@@ -94,7 +94,7 @@ const config = {
             items: [
               {
                 label: 'GitHub',
-                href: 'https://github.com/SliveredSerf/RedhatCSE',
+                href: 'https://github.com/Silv5rback/RedhatCSE-study-guide',
               },
             ],
           },

@@ -5,10 +5,10 @@
   "source": "@site/docs/index.mdx",
   "sourceDirName": ".",
   "slug": "/",
-  "permalink": "/RedhatCSE/",
+  "permalink": "/RedhatCSE-study-guide/",
   "draft": false,
   "unlisted": false,
-  "editUrl": "https://github.com/SliveredSerf/RedhatCSE/tree/main/docs/index.mdx",
+  "editUrl": "https://github.com/Silv5rback/RedhatCSE-study-guide/tree/main/docs/index.mdx",
   "tags": [],
   "version": "current",
   "frontMatter": {

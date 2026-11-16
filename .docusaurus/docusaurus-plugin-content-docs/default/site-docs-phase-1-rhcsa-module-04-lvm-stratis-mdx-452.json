@@ -5,10 +5,10 @@
   "source": "@site/docs/phase1-rhcsa/module04-lvm-stratis.mdx",
   "sourceDirName": "phase1-rhcsa",
   "slug": "/phase1-rhcsa/module04-lvm-stratis",
-  "permalink": "/RedhatCSE/phase1-rhcsa/module04-lvm-stratis",
+  "permalink": "/RedhatCSE-study-guide/phase1-rhcsa/module04-lvm-stratis",
   "draft": false,
   "unlisted": false,
-  "editUrl": "https://github.com/SliveredSerf/RedhatCSE/tree/main/docs/phase1-rhcsa/module04-lvm-stratis.mdx",
+  "editUrl": "https://github.com/Silv5rback/RedhatCSE-study-guide/tree/main/docs/phase1-rhcsa/module04-lvm-stratis.mdx",
   "tags": [],
   "version": "current",
   "frontMatter": {
@@ -20,10 +20,10 @@
   "sidebar": "tutorialSidebar",
   "previous": {
     "title": "Module 3 — Storage",
-    "permalink": "/RedhatCSE/phase1-rhcsa/module03-storage"
+    "permalink": "/RedhatCSE-study-guide/phase1-rhcsa/module03-storage"
   },
   "next": {
     "title": "Module 5 — DNF Package Management",
-    "permalink": "/RedhatCSE/phase1-rhcsa/module05-dnf"
+    "permalink": "/RedhatCSE-study-guide/phase1-rhcsa/module05-dnf"
   }
 }

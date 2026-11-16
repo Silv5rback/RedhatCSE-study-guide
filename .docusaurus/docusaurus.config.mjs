@@ -7,10 +7,10 @@ export default {
   "title": "RedhatCSE — Red Hat Certified Systems Engineer Study Guide",
   "tagline": "Interactive RHCSA → RHCE study guide with live shell labs, quizzes, and React widgets",
   "favicon": "img/favicon.ico",
-  "url": "https://your-username.github.io",
-  "baseUrl": "/RedhatCSE/",
-  "organizationName": "SliveredSerf",
-  "projectName": "RedhatCSE",
+  "url": "https://silv5rback.github.io",
+  "baseUrl": "/RedhatCSE-study-guide/",
+  "organizationName": "Silv5rback",
+  "projectName": "RedhatCSE-study-guide",
   "onBrokenLinks": "throw",
   "i18n": {
     "defaultLocale": "en",
@@ -26,7 +26,7 @@ export default {
       {
         "docs": {
           "sidebarPath": "C:\\Users\\SliveredSerf\\Projects\\RedhatCSE\\sidebars.js",
-          "editUrl": "https://github.com/SliveredSerf/RedhatCSE/tree/main/",
+          "editUrl": "https://github.com/Silv5rback/RedhatCSE-study-guide/tree/main/",
           "routeBasePath": "/"
         },
         "blog": false,
@@ -55,7 +55,7 @@ export default {
           "label": "Study Guide"
         },
         {
-          "href": "https://github.com/SliveredSerf/RedhatCSE",
+          "href": "https://github.com/Silv5rback/RedhatCSE-study-guide",
           "label": "GitHub",
           "position": "right"
         }
@@ -79,7 +79,7 @@ export default {
           "items": [
             {
               "label": "GitHub",
-              "href": "https://github.com/SliveredSerf/RedhatCSE"
+              "href": "https://github.com/Silv5rback/RedhatCSE-study-guide"
             }
           ]
         }

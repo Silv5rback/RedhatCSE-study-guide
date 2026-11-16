@@ -5,10 +5,10 @@
   "source": "@site/docs/phase2-rhce/module09-ansible-basics.mdx",
   "sourceDirName": "phase2-rhce",
   "slug": "/phase2-rhce/module09-ansible-basics",
-  "permalink": "/RedhatCSE/phase2-rhce/module09-ansible-basics",
+  "permalink": "/RedhatCSE-study-guide/phase2-rhce/module09-ansible-basics",
   "draft": false,
   "unlisted": false,
-  "editUrl": "https://github.com/SliveredSerf/RedhatCSE/tree/main/docs/phase2-rhce/module09-ansible-basics.mdx",
+  "editUrl": "https://github.com/Silv5rback/RedhatCSE-study-guide/tree/main/docs/phase2-rhce/module09-ansible-basics.mdx",
   "tags": [],
   "version": "current",
   "frontMatter": {
@@ -20,10 +20,10 @@
   "sidebar": "tutorialSidebar",
   "previous": {
     "title": "Module 8 — RHCSA Capstone",
-    "permalink": "/RedhatCSE/phase1-rhcsa/module08-capstone"
+    "permalink": "/RedhatCSE-study-guide/phase1-rhcsa/module08-capstone"
   },
   "next": {
     "title": "Module 10 — Playbooks",
-    "permalink": "/RedhatCSE/phase2-rhce/module10-playbooks"
+    "permalink": "/RedhatCSE-study-guide/phase2-rhce/module10-playbooks"
   }
 }

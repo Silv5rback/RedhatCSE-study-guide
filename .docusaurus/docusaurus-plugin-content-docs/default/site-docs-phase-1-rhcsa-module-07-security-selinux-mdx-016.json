@@ -5,10 +5,10 @@
   "source": "@site/docs/phase1-rhcsa/module07-security-selinux.mdx",
   "sourceDirName": "phase1-rhcsa",
   "slug": "/phase1-rhcsa/module07-security-selinux",
-  "permalink": "/RedhatCSE/phase1-rhcsa/module07-security-selinux",
+  "permalink": "/RedhatCSE-study-guide/phase1-rhcsa/module07-security-selinux",
   "draft": false,
   "unlisted": false,
-  "editUrl": "https://github.com/SliveredSerf/RedhatCSE/tree/main/docs/phase1-rhcsa/module07-security-selinux.mdx",
+  "editUrl": "https://github.com/Silv5rback/RedhatCSE-study-guide/tree/main/docs/phase1-rhcsa/module07-security-selinux.mdx",
   "tags": [],
   "version": "current",
   "frontMatter": {
@@ -20,10 +20,10 @@
   "sidebar": "tutorialSidebar",
   "previous": {
     "title": "Module 6 — Users & Groups",
-    "permalink": "/RedhatCSE/phase1-rhcsa/module06-users-groups"
+    "permalink": "/RedhatCSE-study-guide/phase1-rhcsa/module06-users-groups"
   },
   "next": {
     "title": "Module 8 — RHCSA Capstone",
-    "permalink": "/RedhatCSE/phase1-rhcsa/module08-capstone"
+    "permalink": "/RedhatCSE-study-guide/phase1-rhcsa/module08-capstone"
   }
 }
