@@ -1,0 +1,59 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" width="800" height="500" viewBox="-0.5 -0.5 800 500" style="background-color: rgb(255, 255, 255);">
+  <defs>
+    <clipPath id="mx-clip-400-300-400-300"><rect x="400" y="300" width="400" height="300"/></clipPath>
+  </defs>
+  <g>
+    <!-- Title -->
+    <text x="400" y="25" fill="#333" font-family="Helvetica" font-size="18" font-weight="bold" text-anchor="middle">RHCSA → RHCE Certification Path</text>
+
+    <!-- Phase 0: Lab Setup -->
+    <rect x="30" y="45" width="220" height="80" rx="8" ry="8" fill="#e3f2fd" stroke="#1565c0" stroke-width="2" pointer-events="none"/>
+    <text x="140" y="72" fill="#1565c0" font-family="Helvetica" font-size="14" font-weight="bold" text-anchor="middle">Phase 0</text>
+    <text x="140" y="92" fill="#333" font-family="Helvetica" font-size="12" text-anchor="middle">Lab Environment</text>
+    <text x="140" y="108" fill="#555" font-family="Helvetica" font-size="11" text-anchor="middle">WSL2 / EC2 · RHEL VM · SSH · ttyd</text>
+
+    <!-- Arrow -->
+    <path d="M 250 85 L 280 85" fill="none" stroke="#333" stroke-width="2" stroke-miterlimit="10" pointer-events="none"/>
+    <path d="M 280 85 L 275 80 L 280 85 L 275 90 Z" fill="#333" stroke="#333" stroke-width="2" pointer-events="none"/>
+
+    <!-- Phase 1: RHCSA -->
+    <rect x="300" y="45" width="220" height="80" rx="8" ry="8" fill="#e8f5e9" stroke="#2e7d32" stroke-width="2" pointer-events="none"/>
+    <text x="410" y="72" fill="#2e7d32" font-family="Helvetica" font-size="14" font-weight="bold" text-anchor="middle">Phase 1</text>
+    <text x="410" y="92" fill="#333" font-family="Helvetica" font-size="12" text-anchor="middle">RHCSA Foundations</text>
+    <text x="410" y="108" fill="#555" font-family="Helvetica" font-size="11" text-anchor="middle">8 modules · systemd · LVM · SELinux</text>
+
+    <!-- Arrow -->
+    <path d="M 520 85 L 550 85" fill="none" stroke="#333" stroke-width="2" stroke-miterlimit="10" pointer-events="none"/>
+    <path d="M 550 85 L 545 80 L 550 85 L 545 90 Z" fill="#333" stroke="#333" stroke-width="2" pointer-events="none"/>
+
+    <!-- RHCSA Exam -->
+    <rect x="550" y="55" width="220" height="60" rx="8" ry="8" fill="#fff8e1" stroke="#f9a825" stroke-width="2" pointer-events="none"/>
+    <text x="660" y="82" fill="#f57f17" font-family="Helvetica" font-size="14" font-weight="bold" text-anchor="middle">RHCSA EX200</text>
+    <text x="660" y="98" fill="#333" font-family="Helvetica" font-size="11" text-anchor="middle">2.5 hours · hands-on</text>
+
+    <!-- Arrow down -->
+    <path d="M 410 125 L 410 155" fill="none" stroke="#333" stroke-width="2" stroke-miterlimit="10" pointer-events="none"/>
+    <path d="M 410 155 L 405 145 L 410 155 L 415 145 Z" fill="#333" stroke="#333" stroke-width="2" pointer-events="none"/>
+
+    <!-- Phase 2: RHCE -->
+    <rect x="300" y="160" width="220" height="80" rx="8" ry="8" fill="#fce4ec" stroke="#c2185b" stroke-width="2" pointer-events="none"/>
+    <text x="410" y="187" fill="#c2185b" font-family="Helvetica" font-size="14" font-weight="bold" text-anchor="middle">Phase 2</text>
+    <text x="410" y="207" fill="#333" font-family="Helvetica" font-size="12" text-anchor="middle">RHCE / Ansible</text>
+    <text x="410" y="223" fill="#555" font-family="Helvetica" font-size="11" text-anchor="middle">6 modules · playbooks · roles · vault</text>
+
+    <!-- Arrow -->
+    <path d="M 520 200 L 550 200" fill="none" stroke="#333" stroke-width="2" stroke-miterlimit="10" pointer-events="none"/>
+    <path d="M 550 200 L 545 195 L 550 200 L 545 205 Z" fill="#333" stroke="#333" stroke-width="2" pointer-events="none"/>
+
+    <!-- RHCE Exam -->
+    <rect x="550" y="170" width="220" height="60" rx="8" ry="8" fill="#f3e5f5" stroke="#6a1b9a" stroke-width="2" pointer-events="none"/>
+    <text x="660" y="197" fill="#6a1b9a" font-family="Helvetica" font-size="14" font-weight="bold" text-anchor="middle">RHCE EX294</text>
+    <text x="660" y="213" fill="#333" font-family="Helvetica" font-size="11" text-anchor="middle">3 hours · Ansible-focused</text>
+
+    <!-- Note box -->
+    <rect x="30" y="160" width="220" height="120" rx="8" ry="8" fill="#fffde7" stroke="#fbc02d" stroke-width="2" pointer-events="none"/>
+    <text x="140" y="185" fill="#f57f17" font-family="Helvetica" font-size="13" font-weight="bold" text-anchor="middle">Prerequisites</text>
+    <text x="140" y="205" fill="#333" font-family="Helvetica" font-size="11" text-anchor="middle">RHCSA required before RHCE</text>
+    <text x="60" y="225" fill="#555" font-family="Helvetica" font-size="11" text-anchor="start" width="200">• Passing score: 70%• Performance-based• No multiple choice• System state verified</text>
+  </g>
+</svg>

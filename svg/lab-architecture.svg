@@ -1,0 +1,35 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" width="800" height="400" viewBox="-0.5 -0.5 800 400" style="background-color: rgb(255, 255, 255);">
+  <defs>
+    <clipPath id="mx-clip-400-300-400-300"><rect x="400" y="300" width="400" height="300"/></clipPath>
+  </defs>
+  <g>
+    <!-- Browser -->
+    <rect x="50" y="50" width="160" height="120" rx="8" ry="8" fill="#e1f5fe" stroke="#01579b" stroke-width="2" pointer-events="none"/>
+    <text x="130" y="90" fill="#01579b" font-family="Helvetica" font-size="16" font-weight="bold" text-anchor="middle">Browser</text>
+    <text x="130" y="120" fill="#333" font-family="Helvetica" font-size="13" text-anchor="middle">xterm.js terminal</text>
+    <rect x="70" y="135" width="120" height="30" rx="4" ry="4" fill="#fff" stroke="#01579b" stroke-width="1" pointer-events="none"/>
+    <text x="130" y="154" fill="#01579b" font-family="Helvetica" font-size="12" text-anchor="middle">ws://host:7681</text>
+
+    <!-- WebSocket arrow -->
+    <path d="M 210 110 L 390 110" fill="none" stroke="#333" stroke-width="2" stroke-miterlimit="10" pointer-events="none"/>
+    <path d="M 390 110 L 380 105 L 390 110 L 380 115 Z" fill="#333" stroke="#333" stroke-width="2" pointer-events="none"/>
+    <text x="300" y="100" fill="#333" font-family="Helvetica" font-size="11" text-anchor="middle">WebSocket</text>
+
+    <!-- ttyd backend -->
+    <rect x="400" y="50" width="160" height="120" rx="8" ry="8" fill="#fff3e0" stroke="#e65100" stroke-width="2" pointer-events="none"/>
+    <text x="480" y="90" fill="#e65100" font-family="Helvetica" font-size="16" font-weight="bold" text-anchor="middle">ttyd backend</text>
+    <text x="480" y="120" fill="#333" font-family="Helvetica" font-size="13" text-anchor="middle">ttyd -p 7681 bash</text>
+    <rect x="420" y="135" width="120" height="30" rx="4" ry="4" fill="#fff" stroke="#e65100" stroke-width="1" pointer-events="none"/>
+    <text x="480" y="154" fill="#e65100" font-family="Helvetica" font-size="12" text-anchor="middle">WSL2 / EC2 Linux</text>
+
+    <!-- Arrow to shell -->
+    <path d="M 480 170 L 480 210" fill="none" stroke="#333" stroke-width="2" stroke-miterlimit="10" pointer-events="none"/>
+    <path d="M 480 210 L 475 200 L 480 210 L 485 200 Z" fill="#333" stroke="#333" stroke-width="2" pointer-events="none"/>
+
+    <!-- Bash shell / PTY -->
+    <rect x="400" y="215" width="160" height="100" rx="8" ry="8" fill="#f3e5f5" stroke="#4a148c" stroke-width="2" pointer-events="none"/>
+    <text x="480" y="245" fill="#4a148c" font-family="Helvetica" font-size="14" font-weight="bold" text-anchor="middle">bash shell</text>
+    <text x="480" y="270" fill="#333" font-family="Helvetica" font-size="12" text-anchor="middle">PTY allocation</text>
+    <text x="480" y="290" fill="#333" font-family="Helvetica" font-size="12" text-anchor="middle">RHCSA / RHCE practice</text>
+  </g>
+</svg>
