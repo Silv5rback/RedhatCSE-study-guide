@@ -154,3 +154,115 @@
 .verification-checklist li:last-child {
   border-bottom: none;
 }
+
+/* ===== Mobile & Tablet Responsiveness ===== */
+
+/* Make tables horizontally scrollable on small screens */
+.table-wrapper {
+  overflow-x: auto;
+  margin: 1rem 0;
+}
+
+/* Quiz options: full-width touch targets on mobile */
+@media (max-width: 768px) {
+  .quiz-container {
+    padding: 1rem;
+    margin: 0.75rem 0;
+  }
+
+  .quiz-question {
+    font-size: 1rem;
+    margin-bottom: 0.75rem;
+  }
+
+  .quiz-option {
+    padding: 1rem;
+    margin: 0.4rem 0;
+    font-size: 1rem;
+    min-height: 44px; /* Apple/iOS minimum touch target */
+  }
+
+  .quiz-feedback {
+    padding: 0.75rem;
+    font-size: 0.95rem;
+  }
+
+  .quiz-score {
+    font-size: 1rem;
+    margin-top: 0.75rem;
+  }
+
+  /* Terminal lab: compact header, full-width on mobile */
+  .terminal-lab-container {
+    margin: 0.75rem 0;
+  }
+
+  .terminal-lab-header {
+    padding: 0.4rem 0.75rem;
+    font-size: 0.8rem;
+    flex-direction: column;
+    gap: 0.4rem;
+    align-items: flex-start;
+  }
+
+  .terminal-lab-status {
+    font-size: 0.7rem;
+  }
+
+  /* Exam tip: tighter padding on mobile */
+  .exam-tip {
+    padding: 0.75rem;
+    margin: 0.75rem 0;
+    font-size: 0.95rem;
+  }
+
+  .exam-tip-title {
+    font-size: 0.8rem;
+    margin-bottom: 0.4rem;
+  }
+
+  /* Challenge checklist: larger touch targets on mobile */
+  .challenge-trial {
+    padding: 1rem;
+    margin: 0.75rem 0;
+  }
+
+  .verification-checklist li {
+    padding: 0.6rem 0;
+    font-size: 1rem;
+  }
+
+  .verification-checklist li input[type="checkbox"] {
+    width: 20px;
+    height: 20px;
+    margin-right: 0.5rem;
+  }
+}
+
+/* Tablet: slightly larger than phone but still compact */
+@media (min-width: 769px) and (max-width: 1024px) {
+  .quiz-container {
+    padding: 1.25rem;
+  }
+
+  .quiz-option {
+    padding: 0.85rem 1rem;
+    min-height: 44px;
+  }
+
+  .terminal-lab-container {
+    margin: 1rem 0;
+  }
+}
+
+/* Ensure code blocks scroll horizontally instead of breaking layout */
+.docusaurus-highlight-code-card,
+pre code {
+  overflow-x: auto;
+}
+
+/* Prevent long commands from breaking layout on mobile */
+code {
+  word-break: break-all;
+  overflow-wrap: break-word;
+}
